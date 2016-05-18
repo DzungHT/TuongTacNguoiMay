@@ -1,0 +1,735 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>QLKS_Lễ tân</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="../dist/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">QLKS</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search" style="font-weight:bold">
+                            Lễ tân
+                        </li>
+                        <li>
+                            <a href="QL_Letan.html"> Quản trị phòng</a>
+                        </li>
+                        <li>
+                            <a href="QL_Datphong.html" class="active"> Đặt phòng</a>
+                        </li>
+                        <li>
+                            <a href="index.html"> Danh sách khách hàng</a>
+                        </li>
+                        <li>
+                            <a href="index.html"> Thêm khách hàng</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <style>
+            a:focus {
+                outline: none;
+            }
+        </style>
+        <style>
+            .box {
+                float: left;
+                width: 16%;
+                padding: 5px 10px;
+                box-sizing: border-box;
+                margin-right: 5px;
+            }
+
+            .boxroom {
+                width: 100%;
+                float: left;
+                height: 80px;
+                border: 1px solid #d0d0d0;
+                position: relative;
+            }
+
+            .btnChoose {
+                width: 100%;
+                float: left;
+                border: 1px solid #d0d0d0;
+                border-top: none;
+                text-align: center;
+                cursor: pointer;
+            }
+
+                .btnChoose:hover {
+                    background-color: #66BEEC;
+                    color: #fff;
+                }
+
+            .boxImage {
+                width: 100%;
+                float: left;
+                padding: 0 25px;
+                box-sizing: border-box;
+                height: 50px;
+            }
+            /*.boxImage div{
+                            width:100%;
+                            height:100%;
+                            background-image: url("file:///D:/QLKS/image/IconRoom.png");
+                            background-repeat: no-repeat;
+                            /*background-attachment: fixed;
+                            background-position: 0px 0px;
+                        }*/
+            .boxname {
+                text-align: center;
+                font-weight: bold;
+                float: left;
+                width: 100%;
+            }
+
+            .phongtrong {
+                background-color: #d0d0d0;
+            }
+
+            .otheogio {
+                background-color: #CBA6EA;
+            }
+
+            .oquadem {
+                background-color: #E6AAAA;
+            }
+
+            .dadat {
+                background-color: #C2EE6E;
+            }
+
+            .candon {
+                background-color: #66BEEC;
+            }
+
+            .star {
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                right: 0;
+            }
+        </style>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary" style="border-color:#d0d0d0">
+                        <div class="panel-heading" style="font-weight:bold">
+                            Đặt phòng
+                        </div>
+                        <div class="panel-body" style="padding-top: 5px;">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="active"><a href="#infomation" role="tab" data-toggle="tab" style="font-weight:bold">Thông tin khách hàng <span class="btn btn-info btn-circle" style="font-weight:bold">1</span></a></li>
+                                        <li><a href="#chooseroom" role="tab" data-toggle="tab" style="font-weight:bold">Chọn phòng cho khách <span class="btn btn-info btn-circle" style="font-weight:bold">2</span></a></li>
+                                        <li><a href="#payment" role="tab" data-toggle="tab" style="font-weight:bold">Đặt cọc <span class="btn btn-info btn-circle" style="font-weight:bold">3</span></a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="infomation" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Họ tên:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Địa chỉ:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Email:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Người lớn:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Ngày đến:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>CMND:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Điện thoại:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Nhóm khách:</label></div>
+                                                    <div style="float:left;width:80%">
+                                                        <select class="form-control">
+                                                            <option>Khách thường(Đặt cọc)</option>
+                                                            <option>Khách VIP(Đặt cọc)</option>
+                                                            <option>Đối tác làm ăn</option>
+                                                            <option>Người nhà</option>
+                                                            <option>Can bộ cao cấp</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Trẻ em:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Ngày đi:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="tab-pane" id="chooseroom" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+                                            <div class="col-lg-12">
+                                                <div style="border:none" class="panel panel-primary">
+                                                    <div style="padding-top: 5px;" class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <div style="float:left;width:20%"><label>Loại phòng:</label></div>
+                                                                    <div style="float:left;width:80%">
+                                                                        <select class="form-control">
+                                                                            <option>Phòng đơn</option>
+                                                                            <option>Phòng đôi</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <div style="float:left;width:20%"><label>Chất lượng:</label></div>
+                                                                    <div style="float:left;width:80%">
+                                                                        <select class="form-control">
+                                                                            <option>Bình thường</option>
+                                                                            <option>1 sao</option>
+                                                                            <option>2 sao</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row">
+                                                                <div style="overflow:auto;height:355px" class="col-lg-12">
+                                                                    <div style="border-radius:0;border:none;margin:0" class="panel panel-default">
+                                                                        <div style="padding:5px 15px; " class="panel-heading">
+                                                                            Tầng 1
+                                                                        </div>
+                                                                        <div style="border:none" class="panel-body">
+                                                                            <div class="box">
+                                                                                <div class="boxroom phongtrong">
+                                                                                    <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>
+                                                                                    <div class="boxImage">
+                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                    </div>
+                                                                                    <div class="boxname">Phòng 101</div>
+                                                                                </div>
+                                                                                <div class="btnChoose">Chọn</div>
+                                                                            </div>
+                                                                            <div class="box">
+                                                                                <div class="boxroom phongtrong">
+                                                                                    <div class="boxImage">
+                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                    </div>
+                                                                                    <div class="boxname">Phòng 102</div>
+                                                                                </div>
+                                                                                <div class="btnChoose">Chọn</div>
+                                                                            </div>
+                                                                            <div class="box">
+                                                                                <div class="boxroom phongtrong">
+                                                                                    <div class="boxImage">
+                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                    </div>
+                                                                                    <div class="boxname">Phòng 103</div>
+                                                                                </div>
+                                                                                <div class="btnChoose">Chọn</div>
+                                                                            </div>
+                                                                            <div class="box">
+                                                                                <div class="boxroom phongtrong">
+                                                                                    <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i></div>
+                                                                                    <div class="boxImage">
+                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                    </div>
+                                                                                    <div class="boxname">Phòng 104</div>
+                                                                                </div>
+                                                                                <div class="btnChoose">Chọn</div>
+                                                                            </div>
+                                                                            <div class="box">
+                                                                                <div class="boxroom phongtrong">
+                                                                                    <div class="boxImage">
+                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                    </div>
+                                                                                    <div class="boxname">Phòng 105</div>
+                                                                                </div>
+                                                                                <div class="btnChoose">Chọn</div>
+                                                                            </div>
+                                                                            <div class="box">
+                                                                                <div class="boxroom phongtrong">
+                                                                                    <div class="boxImage">
+                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                    </div>
+                                                                                    <div class="boxname">Phòng 106</div>
+                                                                                </div>
+                                                                                <div class="btnChoose">Chọn</div>
+                                                                            </div>
+                                                                            <div class="box">
+                                                                                <div class="boxroom phongtrong">
+                                                                                    <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>
+                                                                                    <div class="boxImage">
+                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                    </div>
+                                                                                    <div class="boxname">Phòng 107</div>
+                                                                                </div>
+                                                                                <div class="btnChoose">Chọn</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div style="border-radius:0;border:none;margin:0" class="panel panel-default">
+                                                                        <div style="padding:5px 15px; " class="panel-heading">
+                                                                            Tầng 2
+                                                                        </div>
+                                                                        <div style="border:none" class="panel-body">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div style="border-radius:0;border:none;margin:0" class="panel panel-default">
+                                                                        <div style="padding:5px 15px; " class="panel-heading">
+                                                                            Tầng 3
+                                                                        </div>
+                                                                        <div style="border:none" class="panel-body">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div style="border-radius:0;border:none;margin:0" class="panel panel-default">
+                                                                        <div style="padding:5px 15px; " class="panel-heading">
+                                                                            Tầng 4
+                                                                        </div>
+                                                                        <div style="border:none" class="panel-body">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div style="border-radius:0;border:none;margin:0" class="panel panel-default">
+                                                                        <div style="padding:5px 15px; " class="panel-heading">
+                                                                            Tầng 5
+                                                                        </div>
+                                                                        <div style="border:none" class="panel-body">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            
+                                        </div>
+                                        <div class="tab-pane" id="payment" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Tổng số tiền:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control" disabled></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Số tiền phải thanh toán:</label></div>
+                                                    <div style="float:left;width:80%"><input class="form-control" disabled></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <div style="float:left;width:20%"><label>Khuyến mại:</label></div>
+                                                    <div style="float:left;width:80%">
+                                                        <select class="form-control">
+                                                            <option>Không khuyến mại</option>
+                                                            <option>...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="col-lg-6" style="padding-left:0;">
+                                                    <div class="form-group">
+                                                        <div style="float:left;width:20%">
+                                                            <label>
+                                                                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Đặt trước
+                                                            </label>
+                                                        </div>
+                                                        <div style="float:left;width:80%"><input class="form-control" id="dattrc" data-check="1"></div>
+                                                        <label>
+                                                            <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">Thanh toán toàn bộ
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6" style="padding-right:0">
+                                                    <div class="form-group">
+                                                        <div style="float:left;width:20%"><label>Hình thức thanh toán:</label></div>
+                                                        <div style="float:left;width:80%">
+                                                            <select class="form-control">
+                                                                <option>Trả tiền mặt</option>
+                                                                <option>Credit card</option>
+                                                                <option>Cheque</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <a class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#myModal">Hoàn thành</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+        <!-- Model -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 id="myModalLabel" class="modal-title">Kiểm tra lại thông tin đặt phòng</h4>
+                    </div>
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+                        <div style="float:left;width:100%;height:200px">
+                            <label>Thông tin khách hàng:</label>
+                        </div>
+                        <div style="float:left;width:100%;height:200px">
+                            <label>Thông tin đặt phòng:</label>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="QL_Letan.html" class="btn btn-primary">Đặt phòng</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+    <script>
+        $('#myTab a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+        $('.btnChoose').click(function (e) {
+            if ($(this).html() == 'Bỏ chọn') {
+            $(this).html('Chọn');
+            $(this).css('background-color', '#fff')
+            } else {
+                $(this).html('Bỏ chọn');
+                $(this).css('background-color', '#66bbec')
+            }
+        })
+        $('#optionsRadios1').click(function () {
+            if ($('#dattrc').attr('data-check') == 0) {
+                $('#dattrc').attr('data-check',1)
+                $('#dattrc').removeAttr('disabled')
+            }
+        });
+        $('#optionsRadios2').click(function () {
+            if ($('#dattrc').attr('data-check') == 1) {
+                $('#dattrc').attr('data-check', 0)
+                $('#dattrc').attr('disabled', 'disabled')
+            }
+            
+        });
+    </script>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../js/morris-data.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,626 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>QLKS_Lễ tân</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="../dist/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">QLKS</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search" style="font-weight:bold">
+                            Lễ tân
+                        </li>
+                        <li>
+                            <a href="QL_Letan.html" class="active"> Quản trị phòng</a>
+                        </li>
+                        <li>
+                            <a href="QL_Datphong.html"> Đặt phòng</a>
+                        </li>
+                        <li>
+                            <a href="#"> Danh sách khách hàng</a>
+                        </li>
+                        <li>
+                            <a href="#"> Thêm khách hàng</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div style="border-bottom:1px solid #eee;margin:5px 0;">
+                        <div class="alert alert-danger" style="margin-bottom:5px;padding:8px">
+                            <span><i class="fa fa-times" style="margin-right:15px;cursor:pointer"></i>Phòng 1 đã đến hạn thanh toán </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+
+            <!-- Style -->
+            <style>
+                .box{
+                    float:left;
+                    width:16%;
+                    padding:5px 10px;
+                    box-sizing:border-box;
+                    margin-right:5px;
+                }
+                .boxroom{
+                    width:100%;
+                    float:left;
+                    height:80px;
+                    border:1px solid #d0d0d0;
+                    position:relative;
+                }
+                .btnView{
+                    width:100%;
+                    float:left;
+                    border:1px solid #d0d0d0;
+                    border-top:none;
+                    text-align:center;
+                    cursor:pointer;
+                }
+                .btnView:hover{
+                    background-color:#66BEEC;
+                    color:#fff;
+                }
+                .boxImage{
+                    width:100%;
+                    float:left;
+                    padding:0 25px;
+                    box-sizing:border-box;
+                    height:50px;
+                }
+                /*.boxImage div{
+                    width:100%;
+                    height:100%;
+                    background-image: url("file:///D:/QLKS/image/IconRoom.png");
+                    background-repeat: no-repeat;
+                    /*background-attachment: fixed;
+                    background-position: 0px 0px;
+                }*/
+                .boxname{
+                    text-align:center;
+                    font-weight:bold;
+                    float:left;
+                    width:100%;
+                }
+                .phongtrong{
+                    background-color:#d0d0d0;
+                }
+                .otheogio{
+                    background-color:#CBA6EA;
+                }
+                .oquadem{
+                    background-color:#E6AAAA;
+                }
+                .dadat{
+                    background-color:#C2EE6E;
+                }
+                .candon{
+                    background-color:#66BEEC;
+                }
+                .star{
+                    position:absolute;
+                    z-index:1;
+                    top:0;
+                    right:0;
+                }
+            </style>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary" style="border-color:#d0d0d0">
+                        <div class="panel-heading" style="font-weight:bold">
+                            Danh sách phòng
+                        </div>
+                        <div class="panel-body" style="padding-top: 5px;">
+                            <div class="row">
+                                <div class="col-lg-12" style="border-bottom:1px solid #ddd;padding-bottom:5px">
+                                    <div class="form-group input-group" style="margin:0">
+                                        <input type="text" class="form-control" placeholder="Nhập tên phòng cần tìm...">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" style="border-bottom:1px solid #d0d0d0;padding:5px 15px">
+                                    <ul style="display:inline;list-style:none; padding: 10px 0px 15px;width:100%">
+                                        <li style="width:20%;display: inline-block;font-weight:bold">Tình trạng phòng:</li>
+                                        <li style="width:15%;display: inline-block;"><i class="fa fa-square" style="color:#d0d0d0"></i> Phòng trống(15)</li>
+                                        <li style="width:15%;display: inline-block;"><i class="fa fa-square" style="color:#CBA6EA"></i> Ở theo giờ()</li>
+                                        <li style="width:15%;display: inline-block;"><i class="fa fa-square" style="color:#E6AAAA"></i> Ở qua đêm()</li>
+                                        <li style="width:15%;display: inline-block;"><i class="fa fa-square" style="color:#C2EE6E"></i> Đã đặt()</li>
+                                        <li style="width:15%;display: inline-block;"><i class="fa fa-square" style="color:#66BEEC"></i> Cần dọn()</li>
+                                    </ul>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-lg-12" style="overflow:auto;height:390px">
+                                        <div class="panel panel-default" style="border-radius:0;border:none;margin:0">
+                                            <div class="panel-heading" style="padding:5px 15px; ">
+                                                Tầng 1
+                                            </div>
+                                            <div class="panel-body" style="border:none">
+                                                <div class="box">
+                                                    <div class="boxroom phongtrong">
+                                                        <div class="star"><i class="fa fa-star"style="color:#f7fa04"></i><i class="fa fa-star" style="color:#f7fa04"></i></div>
+                                                        <div class="boxImage">
+                                                            <div><img src="file:///D:/QLKS/image/IconRoom.png" style="width:100%;height:50px;" /></div>
+                                                        </div>
+                                                        <div class="boxname">Phòng 101</div>
+                                                    </div>
+                                                    <div class="btnView" data-toggle="modal" data-target="#myModal">Xem</div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="boxroom dadat">
+                                                        <div class="boxImage">
+                                                            <div><img src="file:///D:/QLKS/image/IconRoom.png" style="width:100%;height:50px;" /></div>
+                                                        </div>
+                                                        <div class="boxname">Phòng 102</div>
+                                                    </div>
+                                                    <div class="btnView" data-toggle="modal" data-target="#myModal2">Xem</div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="boxroom candon">
+                                                        <div class="boxImage">
+                                                            <div><img src="file:///D:/QLKS/image/IconRoom.png" style="width:100%;height:50px;" /></div>
+                                                        </div>
+                                                        <div class="boxname">Phòng 103</div>
+                                                    </div>
+                                                    <div class="btnView">Xem</div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="boxroom oquadem">
+                                                        <div class="star"><i class="fa fa-star" style="color:#f7fa04"></i></div>
+                                                        <div class="boxImage">
+                                                            <div><img src="file:///D:/QLKS/image/IconRoom.png" style="width:100%;height:50px;" /></div>
+                                                        </div>
+                                                        <div class="boxname">Phòng 104</div>
+                                                    </div>
+                                                    <div class="btnView">Xem</div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="boxroom oquadem">
+                                                        <div class="boxImage">
+                                                            <div><img src="file:///D:/QLKS/image/IconRoom.png" style="width:100%;height:50px;" /></div>
+                                                        </div>
+                                                        <div class="boxname">Phòng 105</div>
+                                                    </div>
+                                                    <div class="btnView">Xem</div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="boxroom phongtrong">
+                                                        <div class="boxImage">
+                                                            <div><img src="file:///D:/QLKS/image/IconRoom.png" style="width:100%;height:50px;" /></div>
+                                                        </div>
+                                                        <div class="boxname">Phòng 106</div>
+                                                    </div>
+                                                    <div class="btnView">Xem</div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="boxroom otheogio">
+                                                        <div class="star"><i class="fa fa-star" style="color:#f7fa04"></i><i class="fa fa-star" style="color:#f7fa04"></i></div>
+                                                        <div class="boxImage" >
+                                                            <div><img src="file:///D:/QLKS/image/IconRoom.png" style="width:100%;height:50px;" /></div>
+                                                        </div>
+                                                        <div class="boxname">Phòng 107</div>
+                                                    </div>
+                                                    <div class="btnView">Xem</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default" style="border-radius:0;border:none;margin:0">
+                                            <div class="panel-heading" style="padding:5px 15px; ">
+                                                Tầng 2
+                                            </div>
+                                            <div class="panel-body" style="border:none">
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default" style="border-radius:0;border:none;margin:0">
+                                            <div class="panel-heading" style="padding:5px 15px; ">
+                                                Tầng 3
+                                            </div>
+                                            <div class="panel-body" style="border:none">
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default" style="border-radius:0;border:none;margin:0">
+                                            <div class="panel-heading" style="padding:5px 15px; ">
+                                                Tầng 4
+                                            </div>
+                                            <div class="panel-body" style="border:none">
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default" style="border-radius:0;border:none;margin:0">
+                                            <div class="panel-heading" style="padding:5px 15px; ">
+                                                Tầng 5
+                                            </div>
+                                            <div class="panel-body" style="border:none">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>           
+        </div>
+        <!-- /#page-wrapper -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding-bottom:0;border-bottom:none;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <!--<h4 class="modal-title" id="myModalLabel">Thông tin chi tiết phòng</h4>-->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#infomation" role="tab" data-toggle="tab">Thông tin phòng</a></li>
+                            <li><a href="#status" role="tab" data-toggle="tab">Tình trạng phòng</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="infomation">
+                                <div class="col-lg-6">
+                                    <label>Tên phòng:</label>
+                                    <br />
+                                    <label>Loại phòng:</label>
+                                    <br />
+                                    <label>Mô tả ngắn:</label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Giá tiền / 1 ngày đêm:</label>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="tab-pane" id="status">
+                                <label>Phòng trống</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="QL_Letan.html" class="btn btn-primary">Đặt phòng</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- model 2 -->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding-bottom:0;border-bottom:none;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <!--<h4 class="modal-title" id="myModalLabel">Thông tin chi tiết phòng</h4>-->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#infomation2" role="tab" data-toggle="tab">Thông tin phòng</a></li>
+                            <li><a href="#status2" role="tab" data-toggle="tab">Tình trạng phòng</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="infomation2">
+                                <div class="col-lg-6">
+                                    <label>Tên phòng:</label>
+                                    <br />
+                                    <label>Loại phòng:</label>
+                                    <br />
+                                    <label>Mô tả ngắn:</label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Giá tiền / 1 ngày đêm:</label>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="tab-pane" id="status2">
+                                <label>Phòng đã đặt</label>
+                                <br />
+                                <label>Ngày nhận phòng:</label>
+                                <br />
+                                <label>Ngày trả phòng:</label>
+                                <br />
+                                <label>Số người:</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="QL_Letan.html" class="btn btn-primary">Hủy đặt phòng</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+    <script>
+        $('#myTab a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+    <script src="../js/morris-data.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+</body>
+</html>
