@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Thanh Toán - QL Khách sạn</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="font-size:20px;color:#ff0000">QUẢN LÝ KHÁCH SẠN</a>
+            </div>
+            <!-- /.navbar-header -->
+            <div class="navbar-header" style="float:right;margin-top:12px;margin-right:12px"><img src="file:///C:/Users/Hieu/Desktop/QLKS/13055940_479977152210237_4841925460002075664_o.jpg" style="width:25px;height:25px" /></div>
+            <div class="navbar-header" style="float:right;margin:12px;font-size:16px;margin-left:5px">Trần Trung Hiếu</div>
+            <div class="navbar-header" style="float:right;margin:12px;margin-right:0px;font-size:16px;color:#ff6a00">NV01</div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Thoát</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        
+                        <li>
+                            <a href="letan.html"><i class="fa fa-dashboard fa-fw"></i> Lễ tân<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="dangkidichvu.html">Đăng kí dịch vụ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Đăng kí phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gia hạn phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Trả phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tra cứu thông tin khách hàng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Xem thông tin phòng</a>
+                                </li>
+                                <li>
+                                    <a href="ThanhToan.html">Thanh Toán</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="quantri.html"><i class="fa fa-table fa-fw"></i> Quản trị<span class="fa arrow"></span></a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="panel panel-body" style="width:100%">
+                <div style="width:100%; margin:5px; float:left">
+                    <div class="panel panel-primary" style="height:1020px">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#thanhtoan" aria-expanded="true">Thanh Toán</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#danhsach" aria-expanded="false">Danh Sách Hóa Đơn</a>
+                            </li>
+
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div id="thanhtoan" class="tab-pane fade active in" style="width:100%;height:100%">
+                                <div style="width:43%;float:left">
+                                    <div style="width:300px; height:80px; display:inline-block">
+                                        <div style="float:left; width:60%; padding:40px;font-size:16px;color:#ff0000"><b>Mã Hóa Đơn:</b> </div>
+                                        <div style="float:left; width:25%; padding:40px;font-size:16px; padding-left:20px">HD88225 </div>
+                                    </div>
+                                    <div style="width:500px; height:auto; display:inline-block; margin-bottom:20px">
+                                        <div style="float:left; width:150px; padding-left:40px; margin-top:5px; font-size:16px;color:#ff0000"><b>Mã Số Phòng:</b> </div>
+                                        <div class="form-group input-group" style="padding-left:50px; width:250px;display:inline">
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Timphong" style="float:left;margin-left:50px">
+                                                    <i class="fa fa-search"></i> Chọn Phòng Thanh Toán
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="Timphong" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            
+                                                            <div class="modal-body">
+                                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                                    <div class="panel panel-primary">
+                                                                        <div class="panel-heading" role="tab" id="headingOne">
+                                                                            <h4 class="panel-title">
+                                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#Tang1" aria-expanded="false" aria-controls="collapseOne">
+                                                                                    Tầng 1
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="Tang1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <div style="float:left;width:20%">
+                                                                                    <div style="margin-top:10px">P101</div>
+                                                                                    <div style="margin-top:10px">P102</div>
+                                                                                    <div style="margin-top:10px">P103</div>
+                                                                                    <div style="margin-top:10px">P104</div>
+                                                                                    <div style="margin-top:10px">P105</div>
+                                                                                </div>
+                                                                                <div style="float:left">
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-primary">
+                                                                        <div class="panel-heading" role="tab" id="headingOne">
+                                                                            <h4 class="panel-title">
+                                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#tang2" aria-expanded="false" aria-controls="collapseOne">
+                                                                                    Tầng 2
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="tang2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <div style="float:left;width:20%">
+                                                                                    <div style="margin-top:10px">P201</div>
+                                                                                    <div style="margin-top:10px">P202</div>
+                                                                                    <div style="margin-top:10px">P203</div>
+                                                                                    <div style="margin-top:10px">P204</div>
+                                                                                    <div style="margin-top:10px">P205</div>
+                                                                                </div>
+                                                                                <div style="float:left">
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-primary">
+                                                                        <div class="panel-heading" role="tab" id="headingOne">
+                                                                            <h4 class="panel-title">
+                                                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#tang3" aria-expanded="false" aria-controls="collapseOne">
+                                                                                    Tầng 3
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="tang3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <div style="float:left;width:20%">
+                                                                                    <div style="margin-top:10px">P301</div>
+                                                                                    <div style="margin-top:10px">P302</div>
+                                                                                    <div style="margin-top:10px">P303</div>
+                                                                                    <div style="margin-top:10px">P304</div>
+                                                                                    <div style="margin-top:10px">P305</div>
+                                                                                </div>
+                                                                                <div style="float:left">
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Xác nhận</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div style="width:500px">
+                                        <div style="float:left; width:200px; padding-left:40px; margin-top:5px; font-size:16px; color:#ff0000"><b>Ngày Thanh Toán:</b> </div>
+                                        <input style="width:200px" type="text" class="form-control" id="datetimepicker1" placeholder="DD/MM/YYYY HH:mm">
+                                        
+                                    </div>
+                                    <div class="panel panel-primary" style="margin:30px">
+                                        <div class="panel-heading" style="font-size:16px">
+                                            CHI TIẾT THANH TOÁN
+                                        </div>
+                                        <div class="panel-body">
+                                            <div style="float:left; width:30%; font-size:16px">Tiền Phòng: </div>
+                                            <div style="float:left; width:60%; font-size:16px; padding-left:20px">750.000 VNĐ </div>
+                                            <div style="float:left; width:30%; font-size:16px">Tiền Dịch Vụ: </div>
+                                            <div style="float:left; width:60%; font-size:16px; padding-left:20px">100.000 VNĐ </div>
+                                            <div style="float:left; width:30%; font-size:16px">Tổng Tiền: </div>
+                                            <div style="float:left; width:60%; font-size:16px; padding-left:20px">850.000 VNĐ </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-green" style="margin:30px">
+                                        <div class="panel-heading" style="font-size:16px">
+                                            CHUYỂN ĐỔI TIỀN TỆ
+                                        </div>
+                                        <form class="panel-body" id="chuyendoi" onsubmit="return validateForm()">
+                                            <div style="float:left; width:100%">
+                                                <div style="display:inline;">Nhập vào số lượng</div>
+                                                <input class="form-control" id="soluong">
+                                            </div>
+                                            <div style="float:left; width:35%;margin-top:20px; margin-bottom:20px">
+                                                <div style="display:inline">Đơn vị gốc</div>
+                                                <select name="TenDanhSach" class="select" style="border-radius:4px; height:30px;width:80px">
+                                                    <option>EURO</option>
+                                                    <option>USD</option>
+                                                    <option>RUBLE</option>
+                                                    <option>VNĐ</option>
+                                                </select>
+                                            </div>
+                                            <div style="float:left; width:35%; margin-top:20px">
+                                                <div style="display:inline">Đơn vị chuyển</div>
+                                                <select name="TenDanhSach" class="select" style="border-radius:4px; height:30px;width:80px">
+                                                    <option>EURO</option>
+                                                    <option>USD</option>
+                                                    <option>RUBLE</option>
+                                                    <option>VNĐ</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-success" style="float:left;margin-top:40px">Chuyển đổi</button>
+                                            <div style="margin-top:20px;width:50px">Kết quả</div>
+                                            <input class="form-control" disabled="" />
+                                        </form>
+                                    </div>
+                                    <div class="panel panel-yellow" style="margin:25px">
+                                        <div class="panel-heading" style="font-size:16px">
+                                            THANH TOÁN BẰNG THẺ
+                                        </div>
+                                        <div class="panel-body">
+                                            <div style="display:inline">
+                                                <div>Nhập Số Tài Khoản</div>
+                                                <input style="margin-bottom:20px" class="form-control" />
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" style="width:100%">
+                                                    Kiểm Tra STK
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content" style="width:400px; height:150px">
+                                                            
+                                                            <div class="modal-body" >
+                                                                Số tài khoản không đúng hoặc số tiền trong tài khoản không đủ để thanh toán
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Nhập lại STK</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1" style="margin-left:25px; width:180px;height:50px;font-size:20px">
+                                        In Hóa Đơn
+                                    </button>
+                                    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width:300px; height:120px">
+
+                                                <div class="modal-body">
+                                                    In Hóa Đơn Thành Công
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2" style="margin-left:25px; width:180px;height:50px;font-size:20px">
+                                        Hủy Thanh Toán
+                                    </button>
+                                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width:300px; height:150px">
+
+                                                <div class="modal-body">
+                                                    Bạn Có Chắc Chắn Muốn Hủy Thanh Toán Không?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                                                    <button type="button" class="btn btn-primary">Xác nhận</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin:5px; width:55% ;float:left;margin-left:0px">
+                                    <div class="panel panel-red" style="margin:20px">
+                                        <div class="panel-heading" style="font-size:16px">
+                                            CHI TIẾT HÓA ĐƠN
+                                        </div>
+                                        <div class="panel-body">
+                                            <div style="margin:5px; font-size:22px; color:#ff0000">THÔNG TIN KHÁCH HÀNG</div>
+                                            <div style="width:100%; height:30px; display:inline-block">
+                                                <div style="float:left; width:50%; padding-left:20px;font-size:16px">Mã Khách Hàng: </div>
+                                                <div style="float:left; width:50%; padding-right:20px;font-size:16px">KH23101995</div>
+                                            </div>
+                                            <div style="width:100%; height:30px; display:inline-block">
+                                                <div style="float:left; width:50%; padding-left:20px;font-size:16px">Họ Tên: </div>
+                                                <div style="float:left; width:50%;font-size:16px">Nguyễn Quang Huy</div>
+                                            </div>
+                                            <div style="width:100%; height:30px; display:inline-block">
+                                                <div style="float:left; width:30%; padding-left:20px;font-size:16px">Số CMT: </div>
+                                                <div style="float:left; width:60%; font-size:16px; padding-left:100px">001095000947</div>
+                                            </div>
+                                            <div style="width:100%; height:30px; display:inline-block">
+                                                <div style="float:left; width:30%; padding-left:20px;font-size:16px">SĐT: </div>
+                                                <div style="float:left; width:60%; font-size:16px; padding-left:100px">01693215992</div>
+                                            </div>
+                                            <div>
+                                                <div style="margin:5px; font-size:22px; color:#ff0000">
+                                                    CHI TIẾT TIỀN PHÒNG
+                                                </div>
+
+                                                <!-- /.panel-heading -->
+                                                <div class="panel-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Phòng</th>
+                                                                    <th>Ngày Thuê</th>
+                                                                    <th>Ngày Trả</th>
+                                                                    <th>Số ngày SD</th>
+                                                                    <th>Tiền Phòng</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>P302</td>
+                                                                    <td>22/5/2015</td>
+                                                                    <td>25/5/2016</td>
+                                                                    <td>3</td>
+                                                                    <td>750.000VNĐ</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.table-responsive -->
+                                                </div>
+                                                <!-- /.panel-body -->
+                                            </div>
+                                            <div>
+                                                <div style="margin:5px; font-size:22px; color:#ff0000">
+                                                    CHI TIẾT DỊCH VỤ
+                                                </div>
+
+                                                <!-- /.panel-heading -->
+                                                <div class="panel-body">
+                                                    <div class="table-responsive">
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal3" style="margin-bottom:10px">
+                                                            Chỉnh Sửa
+                                                        </button>
+                                                        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+
+                                                                    <div class="modal-body">
+                                                                        <div class="form-group">
+                                                                            <label>Ngày Sử dụng</label>
+                                                                            <input class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>MÃ DV</label>
+                                                                            <input class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Số lượng</label>
+                                                                            <input class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                                                                        <button type="button" class="btn btn-primary">Lưu</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <table class="table table-striped table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Phòng</th>
+                                                                    <th>Ngày SD</th>
+                                                                    <th>Mã DV</th>
+                                                                    <th>Tên DV</th>
+                                                                    <th>Số lượng</th>
+                                                                    <th>Thành tiền</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>P302</td>
+                                                                    <td>22/5/2015</td>
+                                                                    <td>DV001</td>
+                                                                    <td>Cơm Trưa</td>
+                                                                    <td>2</td>
+                                                                    <td>100.000VNĐ</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.table-responsive -->
+                                                </div>
+                                                <!-- /.panel-body -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div id="danhsach" class="tab-pane fade">
+                                <div class="panel panel-red" style="margin:10px">
+                                    <div class="panel-heading">
+                                        DANH SÁCH HÓA ĐƠN
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="dataTable_wrapper">
+                                            <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                                <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label>Trình Chiếu<select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>Bản Ghi</label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>Tìm Kiếm:<input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example"></label></div></div></div><div class="row">
+                                                    <div class="col-sm-12">
+                                                        <table id="dataTables-example" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dataTables-example_info">
+                                                            <thead>
+                                                                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 175px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">STT</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 203px;" aria-label="Browser: activate to sort column ascending">Mã Hóa Đơn</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 184px;" aria-label="Platform(s): activate to sort column ascending">Ngày Thanh Toán</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 150px;" aria-label="Engine version: activate to sort column ascending">Thành Tiền</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 108px;" aria-label="CSS grade: activate to sort column ascending">Mã NV</th></tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="gradeA odd" role="row">
+                                                                    <td class="sorting_1">1</td>
+                                                                    <td>HD88225</td>
+                                                                    <td>11/5/2016</td>
+                                                                    <td class="center">850.000VNĐ</td>
+                                                                    <td class="center">NV01</td>
+                                                                </tr>
+                                                                <tr class="gradeA odd" role="row">
+                                                                    <td class="sorting_1">2</td>
+                                                                    <td>HD88226</td>
+                                                                    <td>13/5/2016</td>
+                                                                    <td class="center">1.150.000VNĐ</td>
+                                                                    <td class="center">NV02</td>
+                                                                </tr>
+                                                                <tr class="gradeA odd" role="row">
+                                                                    <td class="sorting_1">3</td>
+                                                                    <td>HD97225</td>
+                                                                    <td>20/5/2016</td>
+                                                                    <td class="center">550.000VNĐ</td>
+                                                                    <td class="center">NV02</td>
+                                                                </tr>
+                                                                <tr class="gradeA odd" role="row">
+                                                                    <td class="sorting_1">4</td>
+                                                                    <td>HD88825</td>
+                                                                    <td>28/6/2016</td>
+                                                                    <td class="center">650.000VNĐ</td>
+                                                                    <td class="center">NV03</td>
+                                                                </tr>
+                                                                <tr class="gradeA odd" role="row">
+                                                                    <td class="sorting_1">5</td>
+                                                                    <td>HD88235</td>
+                                                                    <td>1/6/2016</td>
+                                                                    <td class="center">1.850.000VNĐ</td>
+                                                                    <td class="center">NV01</td>
+                                                                </tr>
+                                                                <tr class="gradeA odd" role="row">
+                                                                    <td class="sorting_1">6</td>
+                                                                    <td>HD88325</td>
+                                                                    <td>26/5/2016</td>
+                                                                    <td class="center">1.500.000VNĐ</td>
+                                                                    <td class="center">NV01</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">4</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">5</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">6</a></li><li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li></ul></div></div></div>
+                                            </div>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+    </div>
+
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+
+    <!--Datetimepicker-->
+    <script src="../dist/js/moment.js"></script>
+    <script src="../dist/js/bootstrap-datetimepicker.js"></script>
+
+    <script>
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                format: 'DD/MM/YYYY HH:mm',
+                useCurrent: true,
+                defaultDate: moment()
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        // JavaScript Document
+        function validateForm() {
+        //Họ phải được điền
+        var ho = document.forms["chuyendoi"]["soluong"].value;
+        if (ho == "") {
+            alert("bạn chưa nhập STK thì chuyển thế lồn nào được");
+            return false;
+            }
+        
+        }
+    </script>
+
+</body>
+</html>
+

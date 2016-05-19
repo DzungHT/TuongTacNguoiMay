@@ -1,0 +1,21 @@
+﻿.btn{
+    border:none;
+    padding:5px;
+}
+.btn-primary{
+    text-align:center;
+    line-height:20px;
+    background:linear-gradient(#F7BCA2,#F8A784);
+    font-weight:bold;
+    color:#843C0C;
+    border-radius:0;
+    box-shadow:2px -2px 5px rgba(0, 0, 0, 0.5);
+}
+.btn:active{
+    box-shadow:0 0 15px rgba(0, 0, 0, 0.28) inset;
+}
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    background: linear-gradient(#F7BCA2,#F8A784);
+    border-color: #204d74;
+    color: #333;
+}

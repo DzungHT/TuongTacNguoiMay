@@ -1,0 +1,1268 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Quản lý nhân sự</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../bower_components/Select2/select2.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	 <!-- Custom CSS -->
+
+	<link href='../bower_components/fullcalendar-2.4.0/fullcalendar.css' rel='stylesheet' />
+	<link href='../bower_components/fullcalendar-2.4.0/fullcalendar.print.css' rel='stylesheet' media='print' />
+	
+	<link href="../bower_components/bootstrap-datepicker-1.5.0/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/Select2/select2.min.js"></script>
+	    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src='../bower_components/fullcalendar-2.4.0/lib/moment.min.js'></script>
+
+	<script src='../bower_components/fullcalendar-2.4.0/fullcalendar.min.js'></script>
+	<script src="../bower_components/bootstrap-datepicker-1.5.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- jQuery -->
+<style>
+    label {
+        font-weight: normal;
+    }
+
+    .ChooseClass, .note {
+        margin-left: 15px;
+    }
+
+    .ChooseClass {
+        height: 25px;
+        margin-bottom: 5px;
+    }
+
+        .ChooseClass div {
+            float: left;
+        }
+
+        .ChooseClass button {
+            margin-right: -35px;
+            background: linear-gradient(#F18B53,#E66C18);
+            border: none;
+            color: #fff;
+            box-shadow: -1px 1px 2px #333;
+            width: 120px;
+            border-bottom-left-radius: 20% 50%;
+            border-top-left-radius: 20% 50%;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+            .ChooseClass button.active {
+                background: #843C0C;
+            }
+
+    .note {
+        clear: both;
+        display: block;
+        height: 34px;
+    }
+
+        .note .note-block {
+            float: left;
+            margin-right: 30px;
+        }
+
+            .note .note-block div {
+                float: left;
+                display: inline-block;
+            }
+
+                .note .note-block div.capital {
+                    padding: 3px 5px;
+                }
+
+    .note-square {
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        border: 3px solid #fff;
+    }
+
+    .not-setting-bg-color {
+        background-color: #bdd7ee;
+    }
+
+    .class-is-not-full-bg-color {
+        background-color: #ED7D31;
+    }
+
+    .holiday-bg-color {
+        background-color: #767171;
+    }
+
+    .class-is-full-bg-color {
+        background-color: #C00000;
+    }
+
+    .class-is-private {
+        background-color: #7030a0;
+    }
+	
+    .group-box {
+        clear: both;
+        width: 100%;
+        height: 490px;
+        margin-top: 10px;
+        padding: 5px;
+    }
+	.group-box-info {
+        clear: both;
+        width: 100%;
+        height: 180px;
+        margin: 0 0 10px 0;
+        padding: 5px;
+    }
+    .group-box-header {
+        background-color: #F4B183;
+        border: 1px solid #A5A5A5;
+        display: inline;
+        padding: 3px 5px;
+        margin-left: 30px;
+    }
+	
+    .group-box-body {
+        border: 1px solid #C55A11;
+        height: 100%;
+        width: 100%;
+        margin-top: -3px;
+        padding: 10px 5px;
+    }
+
+    #filter {
+        position: absolute;
+        right: 45px;
+        top: 93px;
+    }
+
+    #btn-group-export {
+        margin: 20px 0 0 5px;
+    }
+
+    #myModal .modal-dialog {
+        width: 385px;
+    }
+
+    .fc-time-grid-event .fc-time {
+        white-space: normal;
+    }
+
+    .fc-view, .fc-view > table {
+        background-color: #bdd7ee;
+    }
+
+    .fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-popover {
+        border-color: #fff;
+    }
+
+    .inDate label {
+        display: inline !important;
+    }
+
+    .inDate .col-md-1 {
+        height: 40px !important;
+    }
+
+    .fc-event {
+        background-color: #7030a0;
+        border-color: #7030a0;
+    }
+	.labelInfo
+	{
+		float:left;
+		width:20%;
+		padding:8px;
+         font-weight:bold;
+	}
+	.inp-info {
+		float:left;
+		width:75%;
+		padding:5px;
+        margin-right:5%;
+	}
+
+</style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="letan.html"><i class="fa fa-dashboard fa-fw"></i> Lễ tân<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+                                    <a href="morris.html">Đăng kí dịch vụ</a>
+                                </li>
+								<li>
+                                    <a href="morris.html">Đăng kí phòng</a>
+                                </li>
+								<li>
+                                    <a href="morris.html">Gia hạn phòng</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Trả phòng</a>
+                                </li>
+								<li>
+                                    <a href="morris.html">Tra cứu thông tin khách hàng</a>
+                                </li>
+								<li>
+                                    <a href="flot.html">Xem thông tin phòng</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="quantri.html"><i class="fa fa-table fa-fw"></i> Quản trị<span class="fa arrow"></a>
+							<ul class="nav nav-second-level">
+								<li>
+                                    <a href="morris.html">Quản lý người dùng</a>
+                                </li>
+								<li>
+                                    <a href="phanconglamviec.html">Quản lý nhân sự</a>
+                                </li>
+								<li>
+                                    <a href="morris.html">Quản lý tài chính</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Phân công làm việc</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+				<div class="row">
+				<div>
+
+	<div class="group-box-info" >
+	    <div class="group-box-header">
+            Thông tin làm việc
+        </div>
+        <div class="group-box-body">
+            <div class="row" style="margin:0">
+				<div style="width:50%;float:left">
+                    <div class="row" style="margin:0">
+                        <div class="labelInfo">
+                            <label>Nhân viên: </label>
+                        </div>
+                        <div class="inp-info">
+                            <select class="select">
+                                <option selected>Nguyễn Quang Huy- Kinh doanh</option>
+                                <option>Vương Đăng Đoàn - Nhân sự</option>
+                                <option>Hoàng Trí Dũng - Kế hoạch</option>
+                                <option>Trần Trung Hiếu - Bán hàng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin:0">
+                        <div class="labelInfo">
+                            <label>Phòng ban </label>
+                        </div>
+                        <div class="inp-info">
+                            <select class="select" style="width:100%">
+                                <option selected>Kinh doanh</option>
+                                <option>Nhân sự</option>
+                                <option>Kế hoạch</option>
+                                <option>Bán hàng</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                  
+				</div>
+                <div style="width:50%;float:left;">
+                    <div class="row" style="margin:0">
+                        <div class="labelInfo">
+                            <label>Ngày sinh: </label>
+                        </div>
+                        <div class="inp-info">
+                            <input type="text" class="form-control" value="15/5/1995" style="width:100%" />
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin:0">
+                        <div class="labelInfo" style="width:100%">
+                            <label>Thông tin làm việc: </label>
+                        </div>
+                        <div style="width:100%">
+                            <textarea class="form-control" rows="2">Làm ca sáng T2 đến T6</textarea>
+                        </div>
+                    </div>
+                </div>
+			</div>
+        </div>
+	</div>
+	
+    <div class="group-box" style="margin-bottom:20px;">
+        <div id="filter" style="float: right;display:none;">
+            <span style="float: left; margin-right: 5px;">Month: </span>
+            <select style="float: left; width:55px; margin-right:10px;" onchange="$('#calendar').fullCalendar('gotoDate', $(this).val())">
+                <option value="1/1/2016">1</option>
+                <option value="2/1/2016">2</option>
+                <option value="3/1/2016">3</option>
+                <option value="4/1/2016">4</option>
+                <option value="5/1/2016">5</option>
+                <option value="6/1/2016">6</option>
+                <option value="7/1/2016">7</option>
+                <option value="8/1/2016">8</option>
+                <option value="9/1/2016">9</option>
+                <option value="10/1/2016">10</option>
+                <option value="11/1/2016">11</option>
+                <option value="12/1/2016">12</option>
+            </select>
+            <span style="float: left; margin-right: 5px; ">Coach: </span>
+            <select style="float: left; width: 155px; margin-right: 10px;">
+                <option>Nguyễn Văn A</option>
+            </select>
+            <span style="float: left; margin-right: 5px; ">Room: </span>
+            <select style="float: left; width:55px; ">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+        <div class="group-box-header">
+            Lịch phân công làm việc
+        </div>
+        <div class="group-box-body">
+            <div id='calendar'></div>
+        </div>
+    </div>
+
+
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" onclick="fnCancleEvent();">&times;</button>
+                <h4 class="modal-title">Nhân viên: Nguyễn Quang Huy</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3" style="padding-right:0;">Nhân viên:</div>
+                    <div class="col-md-9">
+                        <select class="select" id="txtCoach">
+                            <option>
+                               Nguyễn Quang Huy
+                            </option>
+                            <option>
+                               Trần Trung Hiếu
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-md-3" style="padding-right:0;">Từ ngày:</div>
+                    <div class="col-md-9">
+                        <div class="input-daterange input-group" id="input-daterange">
+                            <input id="txtFromDate" type="text" class="input-sm form-control" name="start" />
+                            <span class="input-group-addon">đến ngày</span>
+                            <input id="txtToDate" type="text" class="input-sm form-control" name="end" />
+                        </div>
+                        <script>
+                            $('#input-daterange').datepicker({
+                                format: "dd/mm/yyyy",
+                                weekStart: 1,
+                                autoclose: true,
+                                todayHighlight: true
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="row inDate" style="margin-top:10px; display:none">
+                    <div class="col-md-3" style="padding-right:0;">
+                        <input type="radio" name="day" id="InDay" value="option1" checked="" style="display:none">
+                        <label for="InDay">
+                            <span></span> Theo thứ:
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" id="Mon" style="margin: 4px 7px 0;" />
+                        <label for="Mon">
+                            Mon
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" id="Tue" style="margin: 4px 7px 0;" />
+                        <label for="Tue">
+                            Tue
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" id="Wen" style="margin: 4px 7px 0;" />
+                        <label for="Wen">
+                            Wen
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" id="Thu" style="margin: 4px 7px 0;" />
+                        <label for="Thu">
+                            Thu
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" id="Fri" style="margin: 4px 7px 0;" />
+                        <label for="Fri">
+                            Fri
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" id="Sat" style="margin: 4px 7px 0;" />
+                        <label for="Sat">
+                            Sat
+                        </label>
+                    </div>
+                    <div class="col-md-1" style="text-align:center;">
+                        <input type="checkbox" id="Sun" style="margin: 4px 7px 0;" />
+                        <label for="Sun">
+                            Sun
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-md-3" style="padding-right:0;">Từ giờ:</div>
+                    <div class="col-md-3" style="padding-right:0;">
+                        <select id="txtFromHour" class="form-control">
+                            <option value="7:0">07:00</option>
+                            <option value="7:30">07:30</option>
+                            <option value="8:0">08:00</option>
+                            <option value="8:30">08:30</option>
+                            <option value="9:0">09:00</option>
+                            <option value="9:30">09:30</option>
+                            <option value="10:0">10:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="11:0">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:0">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:0">13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="14:0">14:00</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:0">15:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="16:0">16:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="17:0">17:00</option>
+                            <option value="17:30">17:30</option>
+                            <option value="18:0">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:0">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:0">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:0">21:00</option>
+                            <option value="21:30">21:30</option>
+                            <option value="22:0">22:00</option>
+                            <option value="22:30">22:30</option>
+                            <option value="23:0">23:00</option>
+                            <option value="23:30">23:30</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3" style="padding-right:0;">Đến giờ:</div>
+                    <div class="col-md-3" style="padding-left:0;">
+                        <select id="txtToHour" class="form-control">
+                            <option value="7:0">07:00</option>
+                            <option value="7:30">07:30</option>
+                            <option value="8:0">08:00</option>
+                            <option value="8:30">08:30</option>
+                            <option value="9:0">09:00</option>
+                            <option value="9:30">09:30</option>
+                            <option value="10:0">10:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="11:0">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:0">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:0">13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="14:0">14:00</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:0">15:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="16:0">16:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="17:0">17:00</option>
+                            <option value="17:30">17:30</option>
+                            <option value="18:0">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:0">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:0">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:0">21:00</option>
+                            <option value="21:30">21:30</option>
+                            <option value="22:0">22:00</option>
+                            <option value="22:30">22:30</option>
+                            <option value="23:0">23:00</option>
+                            <option value="23:30">23:30</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-md-3" style="padding-right:0;">Trạng thái:</div>
+                    <div class ="col-md-3" style="padding-right:0;color:#27ee08;font-weight:bold">OK</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSubmit" class="btn btn-primary" onclick="fnSaveEvent()">Submit</button>
+                <button class="btn btn-primary" data-dismiss="modal" onclick="fnCancleEvent();">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+				</div>
+				<!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+
+	<script>
+    var _dateStart;
+    var _dateEnd;
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            defaultView: 'agendaAllWeek',
+            firstDay: 1,
+            fixedWeekCount: false,
+            editable: false,
+            minTime: '07:00:00',
+            maxTime: '21:00:00',
+            timezone: 'local',
+            slotEventOverlap: false,
+            businessHours: {
+                start: '7:00', // a start time (10am in this example)
+                end: '21:00', // an end time (6pm in this example)
+
+                dow: [1, 2, 3, 4, 5, 6]
+                // days of week. an array of zero-based day of week integers (0=Sunday)
+                // (Monday-Thursday in this example)
+            },
+            allDaySlot: false,
+            contentHeight: 400,
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaAllWeek,agendaWeek,agendaDay'
+            },
+            views: {
+                agendaAllWeek: {
+                    type: 'agenda',
+                    duration: { months: 1 },
+                    buttonText: 'Multi Weeks',
+                    columnFormat: 'dd DD',
+                    titleFormat: 'MMMM YYYY',
+                    displayEventTime :false
+                }
+            },
+            defaultDate: '2016-05-10T01:00:00+07:00',
+            selectable: true,
+            selectHelper: true,
+            select: function (start, end, jsEvent, view) {
+                var dateStart = new Date(start);
+                var dateEnd = new Date(end);
+                _dateStart = start;
+                _dateEnd = end;
+                $('#txtFromHour').val(dateStart.getHours() + ':' + dateStart.getMinutes());
+                $('#txtToHour').val(dateEnd.getHours() + ':' + dateEnd.getMinutes());
+                $('#txtFromDate').val(dateStart.getDate() + '/' + (dateStart.getMonth() + 1) + '/' + dateStart.getFullYear());
+                $('#txtToDate').val(dateEnd.getDate() + '/' + (dateEnd.getMonth() + 1) + '/' + dateEnd.getFullYear());
+                $('#frmAddMem').hide();
+                $("#myModal").modal();
+            },
+
+            eventClick: function (calEvent, jsEvent, view) {
+                $("#myModal").modal();
+            },
+            eventRender: function (event, element) {
+                if (event.className[0] === "fc-helper") { //if it's the drag event
+                    renderChunkedHelper(event);
+                    return false; //don't actually render the select helper
+                }
+            },
+            eventLimit: true, // allow "more" link when too many events
+            events: [
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-02T07:00:00+07:00',
+				    end: '2016-05-02T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-04T07:00:00+07:00',
+				    end: '2016-05-04T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-06T07:00:00+07:00',
+				    end: '2016-05-06T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-09T07:00:00+07:00',
+				    end: '2016-05-09T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-11T07:00:00+07:00',
+				    end: '2016-05-11T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-13T07:00:00+07:00',
+				    end: '2016-05-13T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-16T07:00:00+07:00',
+				    end: '2016-05-16T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-18T07:00:00+07:00',
+				    end: '2016-05-18T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-20T07:00:00+07:00',
+				    end: '2016-05-20T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-23T07:00:00+07:00',
+				    end: '2016-05-23T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-25T07:00:00+07:00',
+				    end: '2016-05-25T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-27T07:00:00+07:00',
+				    end: '2016-05-27T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+				{
+				    title: "HuyNQ",
+				    start: '2016-05-30T07:00:00+07:00',
+				    end: '2016-05-30T09:00:00+07:00',
+				    color: '#ff0000'
+				},
+                {
+                    title: "DungHT",
+                    start: '2016-05-02T09:00:00+07:00',
+                    end: '2016-05-02T11:00:00+07:00',
+                    rendering: 'background',
+                    color: '#606060'
+                },
+				{
+				    title: "DungHT",
+				    start: '2016-05-04T09:00:00+07:00',
+				    end: '2016-05-04T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-06T09:00:00+07:00',
+				    end: '2016-05-06T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-09T09:00:00+07:00',
+				    end: '2016-05-09T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-11T09:00:00+07:00',
+				    end: '2016-05-11T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-13T09:00:00+07:00',
+				    end: '2016-05-13T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-16T09:00:00+07:00',
+				    end: '2016-05-16T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-18T09:00:00+07:00',
+				    end: '2016-05-18T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-20T09:00:00+07:00',
+				    end: '2016-05-20T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-23T09:00:00+07:00',
+				    end: '2016-05-23T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-25T09:00:00+07:00',
+				    end: '2016-05-25T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-27T09:00:00+07:00',
+				    end: '2016-05-27T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+				{
+				    title: "DungHT",
+				    start: '2016-05-30T09:00:00+07:00',
+				    end: '2016-05-30T11:00:00+07:00',
+				    rendering: 'background',
+				    color: '#606060'
+				},
+                {
+                    title: "DoanVD",
+                    start: '2016-05-03T09:00:00+07:00',
+                    end: '2016-05-03T13:00:00+07:00',
+                    color: '#ed7d31'
+                },
+				{
+				    title: "DoanVD",
+				    start: '2016-05-05T09:00:00+07:00',
+				    end: '2016-05-05T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-07T09:00:00+07:00',
+				    end: '2016-05-07T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-10T09:00:00+07:00',
+				    end: '2016-05-10T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-12T09:00:00+07:00',
+				    end: '2016-05-12T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-14T09:00:00+07:00',
+				    end: '2016-05-14T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-17T09:00:00+07:00',
+				    end: '2016-05-17T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-19T09:00:00+07:00',
+				    end: '2016-05-19T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-21T09:00:00+07:00',
+				    end: '2016-05-21T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-24T09:00:00+07:00',
+				    end: '2016-05-24T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-26T09:00:00+07:00',
+				    end: '2016-05-26T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-28T09:00:00+07:00',
+				    end: '2016-05-8T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "DoanVD",
+				    start: '2016-05-31T09:00:00+07:00',
+				    end: '2016-05-31T13:00:00+07:00',
+				    color: '#ed7d31'
+				},
+				{
+				    title: "Hieu",
+				    start: '2016-05-01T14:00:00+07:00',
+				    end: '2016-05-01T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Hieu",
+				    start: '2016-05-02T14:00:00+07:00',
+				    end: '2016-05-02T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Hieu",
+				    start: '2016-05-03T14:00:00+07:00',
+				    end: '2016-05-03T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Hieu",
+				    start: '2016-05-04T14:00:00+07:00',
+				    end: '2016-05-04T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Hieu",
+				    start: '2016-05-05T14:00:00+07:00',
+				    end: '2016-05-05T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Hieu",
+				    start: '2016-05-06T14:00:00+07:00',
+				    end: '2016-05-06T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Vu",
+				    start: '2016-05-10T14:00:00+07:00',
+				    end: '2016-05-10T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Vu",
+				    start: '2016-05-11T14:00:00+07:00',
+				    end: '2016-05-11T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Vu",
+				    start: '2016-05-12T14:00:00+07:00',
+				    end: '2016-05-012T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Vu",
+				    start: '2016-05-13T14:00:00+07:00',
+				    end: '2016-05-13T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Vu",
+				    start: '2016-05-14T14:00:00+07:00',
+				    end: '2016-05-05T16:00:00+07:00',
+				    color: '#7030a0'
+				},
+				{
+				    title: "Vu",
+				    start: '2016-05-15T14:00:00+07:00',
+				    end: '2016-05-15T16:00:00+07:00',
+				    color: '#7030a0'
+				}
+            ]
+        });
+    });
+
+    // Chunks a multiday event into an array of events
+    // i.e. From {start:"2015-05-06T11:00",end:"2015-05-08T15:00"}
+    //      into [ {start:"2015-05-06T11:00",end:"2015-05-07T15:00"},
+    //             {start:"2015-05-07T11:00",end:"2015-05-08T15:00"} ]
+    var chunk = function (event, type) {
+        var chunked = [];
+        //diff = moment.duration(event.end.diff(event.start));
+        if (event.start.format('HHmm') > event.end.format('HHmm')) {
+            return false; //Can't chunk, starttime > endtime
+        }
+        for (var day = event.start.clone() ; !day.isAfter(event.end, 'day') ; day.add(1, 'day')) {
+            chunked.push({
+                start: day.clone(),
+                title: event.title,
+                end: day.clone().hour(event.end.hour()).minute(event.end.minute()),
+                id: "chunked-" + type //Used as a flag in the render function
+            })
+        }
+        return chunked;
+    };
+    // Takes an event and renders it chunked. Also remove the previous chunked-helper.
+    // Runs after a timeout and only once.
+    var renderChunkedHelper = (function () {
+        var id = 0;
+        return function (event) {
+            window.clearTimeout(id);
+            id = window.setTimeout(function () {
+                var chunked = chunk(event, "helper");
+                eventToChunk = null;
+                $("#calendar").fullCalendar("removeEvents", "chunked-helper");
+                for (var i = 0; i < chunked.length; i++) {
+                    $("#calendar").fullCalendar("renderEvent", chunked[i]); //Manually render each chunk
+                }
+            }, 0); //delay in ms. Could be tweaked for optimal perfomance
+
+        }
+    })();
+    $("#myModal").on('hide.bs.modal', function () {
+        fnCancleEvent();
+    });
+    function fnSaveEvent() {
+        var eventData;
+        var title = $('#txtClass').val();
+        //if (title) {
+        //    eventData = {
+        //        title: title,
+        //        start: $('#txtFromDate').val(),
+        //        end: $('#txtToDate').val()
+        //    };
+        //    $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+        //}
+        //$('#calendar').fullCalendar('unselect');
+        $("#myModal").modal('hide');
+        $("#calendar").fullCalendar("removeEvents", "chunked-helper");
+        $("#calendar").fullCalendar("addEventSource", chunk({ start: _dateStart, end: _dateEnd, title: title }, "event"));
+    }
+    function fnCancleEvent() {
+        $("#calendar").fullCalendar("removeEvents", "chunked-helper");
+    }
+</script>
+    <script>
+    $(".select").select2();
+    $("#s2id_autogen1").css("width", "100%");
+    $("#s2id_autogen3").css("width", "100%");
+    $("#s2id_txtCoach").css("width", "100%");
+    </script>
+    
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
