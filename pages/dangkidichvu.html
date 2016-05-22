@@ -59,6 +59,10 @@
         .banan .checkbox{
             display:block;
         }
+        .panel-heading{
+            font-size:18px;
+            text-transform:uppercase;
+        }
     </style>
 </head>
 
@@ -70,7 +74,7 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Menu</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -150,11 +154,10 @@
                 <div class="row">
 
                     <div class="col-lg-6">
-
                         <!--Thông tin khách hàng-->
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                1. Thông tin khách hàng
+                                1. THÔNG TIN KHÁCH HÀNG
                             </div>
                             <div class="panel-body">
                                 <form class="form-horizontal">
@@ -172,9 +175,9 @@
                                         <label for="hoten" class="col-sm-2 control-label">Phòng:</label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" disabled>
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default">
+                                                    <button type="button" class="btn btn-default disabled">
                                                         <i class="fa fa-search"></i>
                                                     </button>
                                                 </span>
@@ -202,23 +205,11 @@
                                 </form>
                             </div>
                         </div>
-
-                        <!--Đặt cọc-->
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                3. Đặt cọc
-                            </div>
-                            <div class="panel-body">
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-6">
+                        
+                        <!--Chọn dịch vụ-->
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                2. Thông tin đăng kí dịch vụ
+                                2. CHỌN DỊCH VỤ
                             </div>
                             <div class="panel-body">
                                 <!--Dịch vụ nhà ăn-->
@@ -237,7 +228,7 @@
                                                         <form class="form-horizontal">
                                                             <table style="width:100%" class="table-form">
                                                                 <tr>
-                                                                    <td width="80px"><label for="datetimepicker1" class="control-label">Từ:</label></td>
+                                                                    <td width="100px"><label for="datetimepicker1" class="control-label">Từ:</label></td>
                                                                     <td><input type="text" class="form-control" id="datetimepicker1" placeholder="DD/MM/YYYY HH:mm"></td>
                                                                 </tr>
                                                                 <tr>
@@ -246,9 +237,11 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td><label class="control-label">Chọn bàn:</label></td>
-                                                                    <td></td>
+                                                                    <td id="chonban"></td>
                                                                 </tr>
                                                             </table>
+															
+															<!--Dãy bàn 1-->
                                                             <div class="row">
                                                                 <!--Bàn 1-->
                                                                 <div class="banan">
@@ -606,7 +599,11 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <!--Bàn 12-->
+                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
+                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
+                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
+
+                                                                 <!--Bàn 12-->
                                                                 <div class="banan">
                                                                     <div class="banan-top text-center alert-danger">
                                                                         <div class="checkbox disabled">
@@ -625,40 +622,6 @@
                                                                                     <div class="modal-header">
                                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                                         <h4 class="modal-title">Thông tin bàn ăn 12</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
-                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
-
-                                                                <!--Bàn 13-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 13
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 13</h4>
                                                                                     </div>
                                                                                     <div class="modal-body">
 
@@ -729,8 +692,100 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!--Đặt cọc-->
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                3. ĐẶT CỌC
+                            </div>
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+				
+					<div class="col-lg-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                CHI TIẾT ĐĂNG KÍ DỊCH VỤ
+                            </div>
+                            <div class="panel-body">
+                                <!-- Thông tin khách hàng -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        
+                                        <h4><b>Thông tin khách hàng</b></h4>
+                                        <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
+                                            <div class="col-lg-3">Họ tên:</div>
+                                            <div class="col-lg-9">Hoàng Trí Dũng</div>
+                                        </div>
+
+                                        <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
+                                            <div class="col-lg-3">Địa chỉ:</div>
+                                            <div class="col-lg-9">Nguyên Xá - Minh Khai - Từ Liêm - Hà Nội</div>
+                                        </div>
+
+                                        <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
+                                            <div class="col-lg-3">Số điện thoại:</div>
+                                            <div class="col-lg-9">0988.59.44.48</div>
+                                        </div>
+
+                                        <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
+                                            <div class="col-lg-3">Phòng:</div>
+                                            <div class="col-lg-9">(Khách ở ngoài)</div>
+                                        </div>
+
+                                        <hr />
+
+                                        <h4><b>Các dịch vụ đăng kí</b></h4>
+
+                                        <table class="table table-bordered table-striped table-hover">
+                                            <thead>
+                                                <tr class="bg-warning">
+                                                    <th width="30%">Tên dịch vụ</th>
+                                                    <th width="50%">Chi tiết</th>
+                                                    <th width="20%">Giá tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <hr />
+                                        <h4><b>Hình thức thanh toán</b></h4>
+
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-lg-12 text-center">
+                                                <button class="btn btn-danger">Hoàn tất đăng kí</button>
+                                                <a href="letan.html" class="btn btn-default"><span class="text-danger">Trở về trang chủ</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+				
+				
+				
+				</div>
             </div>
             <!-- /.container-fluid -->
         </div>
