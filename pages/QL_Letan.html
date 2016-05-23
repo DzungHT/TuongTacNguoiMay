@@ -37,9 +37,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">QLKS</a>
+                <a class="navbar-brand" href="#" style="font-size:20px;color:#ff0000">QUẢN LÝ KHÁCH SẠN</a>
             </div>
             <!-- /.navbar-header -->
+
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -252,25 +253,42 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search" style="font-weight:bold">
-                            Lễ tân
-                        </li>
-                        <li>
-                            <a href="QL_Letan.html" class="active"> Quản trị phòng</a>
-                        </li>
-                        <li>
-                            <a href="QL_Datphong.html"> Đặt phòng</a>
-                        </li>
-                        <li>
-                            <a href="#"> Danh sách khách hàng</a>
-                        </li>
-                        <li>
-                            <a href="#"> Thêm khách hàng</a>
-                        </li>
 
+                        <li>
+                            <a href="letan.html"><i class="fa fa-dashboard fa-fw"></i> Lễ tân<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="dangkidichvu.html">Đăng kí dịch vụ</a>
+                                </li>
+                                <li>
+                                    <a href="QL_Letan.html">Quản lý phòng</a>
+                                </li>
+                                <li>
+                                    <a href="QL_Datphong.html">Đăng kí phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gia hạn phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Trả phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tra cứu thông tin khách hàng</a>
+                                </li>
+
+                                <li>
+                                    <a href="ThanhToan.html">Thanh Toán</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="quantri.html"><i class="fa fa-table fa-fw"></i> Quản trị<span class="fa arrow"></a>
+
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -406,7 +424,7 @@
                                                         </div>
                                                         <div class="boxname">Phòng 101</div>
                                                     </div>
-                                                    <div class="btnView" data-toggle="modal" data-target="#myModal">Xem</div>
+                                                    <div class="btnView" data-toggle="modal" onclick="Show('myModal'); getRoomID('101')">Xem</div>
                                                 </div>
                                                 <div class="box">
                                                     <div class="boxroom dadat">
@@ -415,7 +433,7 @@
                                                         </div>
                                                         <div class="boxname">Phòng 102</div>
                                                     </div>
-                                                    <div class="btnView" data-toggle="modal" data-target="#myModal2">Xem</div>
+                                                    <div class="btnView" data-toggle="modal" onclick="Show('myModal2')">Xem</div>
                                                 </div>
                                                 <div class="box">
                                                     <div class="boxroom candon">
@@ -424,7 +442,7 @@
                                                         </div>
                                                         <div class="boxname">Phòng 103</div>
                                                     </div>
-                                                    <div class="btnView">Xem</div>
+                                                    <div class="btnView" onclick="Show('myModal2')">Xem</div>
                                                 </div>
                                                 <div class="box">
                                                     <div class="boxroom oquadem">
@@ -434,7 +452,7 @@
                                                         </div>
                                                         <div class="boxname">Phòng 104</div>
                                                     </div>
-                                                    <div class="btnView">Xem</div>
+                                                    <div class="btnView" onclick="Show('myModal2')">Xem</div>
                                                 </div>
                                                 <div class="box">
                                                     <div class="boxroom oquadem">
@@ -443,7 +461,7 @@
                                                         </div>
                                                         <div class="boxname">Phòng 105</div>
                                                     </div>
-                                                    <div class="btnView">Xem</div>
+                                                    <div class="btnView" onclick="Show('myModal2')">Xem</div>
                                                 </div>
                                                 <div class="box">
                                                     <div class="boxroom phongtrong">
@@ -452,7 +470,7 @@
                                                         </div>
                                                         <div class="boxname">Phòng 106</div>
                                                     </div>
-                                                    <div class="btnView">Xem</div>
+                                                    <div class="btnView" onclick="Show('myModal'); getRoomID('106')">Xem</div>
                                                 </div>
                                                 <div class="box">
                                                     <div class="boxroom otheogio">
@@ -462,7 +480,7 @@
                                                         </div>
                                                         <div class="boxname">Phòng 107</div>
                                                     </div>
-                                                    <div class="btnView">Xem</div>
+                                                    <div class="btnView" onclick="Show('myModal2')">Xem</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -506,7 +524,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
                 
@@ -546,7 +563,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="QL_Letan.html" class="btn btn-primary">Đặt phòng</a>
+                        <a onclick="Close('myModal');Show('frmDatphong')" class="btn btn-primary">Đặt phòng</a>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -602,12 +619,252 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+        <!-- Model 3 -->
+        <div class="modal fade" id="frmDatphong" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:1006px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding-bottom:0;border-bottom:none;">
+                        <button type="button"onclick="Close('frmDatphong')" class="close" aria-hidden="true">&times;</button>
+                        <!--<h4 class="modal-title" id="myModalLabel">Thông tin chi tiết phòng</h4>-->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#frminfomation" role="tab" style="font-weight:bold">Thông tin khách hàng <span class="btn btn-info btn-circle" style="font-weight:bold">1</span></a></li>
+                            <li><a href="#payment" role="tab" style="font-weight:bold">Đặt cọc <span class="btn btn-info btn-circle" style="font-weight:bold">2</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="frminfomation" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Họ tên:<span style="color:red;">*</span></label></div>
+                                        <div style="float:left;width:80%">
+                                            <input class="form-control" value="" id="inpHoten" data-type="" type="text" name="Name">
+                                            <div id="Err_inpName" class="text-err"></div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Địa chỉ:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpDiachi"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Email:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpEmail"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Người lớn:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpNguoilon"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Ngày đến:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpNgayden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>CMND:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpCMND"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Điện thoại:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpDienthoai"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Nhóm khách:</label></div>
+                                        <div style="float:left;width:80%">
+                                            <select class="form-control">
+                                                <option>Khách thường(Đặt cọc)</option>
+                                                <option>Khách VIP(Đặt cọc)</option>
+                                                <option>Đối tác làm ăn</option>
+                                                <option>Người nhà</option>
+                                                <option>Can bộ cao cấp</option>
+                                            </select>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Trẻ em:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpTreem"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Ngày đi:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" value="" id="inpNgaydi"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <button class="btn btn-primary" style="float:right" onclick="Next()">Tiếp</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            
+                            <div class="tab-pane" id="payment" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Tổng số tiền:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" disabled value="3,000,000 NVĐ"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Số tiền phải thanh toán:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" disabled value="3,000,000 VNĐ"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Khuyến mại:</label></div>
+                                        <div style="float:left;width:80%">
+                                            <select class="form-control">
+                                                <option>Không khuyến mại</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="col-lg-6" style="padding-left:0;">
+                                        <div class="form-group">
+                                            <div style="float:left;width:20%">
+                                                <label>
+                                                    <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Đặt trước
+                                                </label>
+                                            </div>
+                                            <div style="float:left;width:80%"><input class="form-control" id="inpDattruoc" data-check="1"></div>
+                                            <label>
+                                                <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">Thanh toán toàn bộ
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6" style="padding-right:0">
+                                        <div class="form-group">
+                                            <div style="float:left;width:20%"><label>Hình thức thanh toán:</label></div>
+                                            <div style="float:left;width:80%">
+                                                <select class="form-control">
+                                                    <option>Trả tiền mặt</option>
+                                                    <option>Credit card</option>
+                                                    <option>Cheque</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <a class="btn btn-primary" style="float:right" onclick="getValueForm();Close('frmDatphong'); Show('showInfo');">Hoàn thành</a>
+                                    <button class="btn btn-primary" style="float:right;margin-right:15px;" onclick="Pre1()">Quay lại</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!--  -->
+        <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 id="myModalLabel" class="modal-title">Kiểm tra lại thông tin đặt phòng</h4>
+                    </div>
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+                        <div style="float:left;width:100%;height:200px">
+                            <label>Thông tin khách hàng:</label>
+                        </div>
+                        <div style="float:left;width:100%;height:200px">
+                            <label>Thông tin đặt phòng:</label>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<a href="QL_Letan.html" class="btn btn-primary">Đặt phòng</a>-->
+                        <button type="button" class="btn btn-default" onclick="Close('showInfo')">Close</button>
+                        <a class="btn btn-primary" style="float:right" data-toggle="modal" onclick="Close('showInfo'); Show('ShowMessage')">Đặt phòng</a>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <div class="modal fade" id="ShowMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+
+                        <div style="text-align:center;width:100%;">Thành công</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#"onclick="Close('ShowMessage')" class="btn btn-primary">OK</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
     </div>
     <script>
         $('#myTab a').click(function (e) {
             e.preventDefault()
             $(this).tab('show')
         })
+        function Close(e) {
+            $('#'+e).modal('hide');
+        }
+        function Show(e) {
+            $('#'+e).modal('show');
+        }
+        $('#optionsRadios1').click(function () {
+            if ($('#dattrc').attr('data-check') == 0) {
+                $('#dattrc').attr('data-check', 1)
+                $('#dattrc').removeAttr('disabled')
+            }
+        });
+        $('#optionsRadios2').click(function () {
+            if ($('#dattrc').attr('data-check') == 1) {
+                $('#dattrc').attr('data-check', 0)
+                $('#dattrc').attr('disabled', 'disabled')
+            }
+        });
+        function Next() {
+            $('.nav-tabs a[href="#payment"]').tab('show')
+        }
+        function Pre1() {
+            $('.nav-tabs a[href="#frminfomation"]').tab('show')
+        }
+        var roomID,CMND,Diachi,Dienthoai,Email,Nguoilon,Treem,Ngayden,Ngaydi,Tongtien,Dattruoc,Hinhthuctt;
+        function getRoomID(e) {
+            roomID = e;
+        }
+        function getValueForm() {
+            var Hoten = $('inpHoten').val();
+            CMND = $('inpCMND').val();
+            Diachi = $('inpDiachi').val();;
+            Dienthoai = $('inpDienthoai').val();;
+            Email = $('inpEmail').val();
+            Nguoilon = $('inpNguoilon').val();;
+            Treem = $('inpTreem').val();
+            Ngayden = $('inpNgayden').val();
+            Ngaydi = $('inpNgaydi').val();
+            Tongtien = 3000000;
+            Dattruoc = $('inpDattruoc').val();
+            Hinhthuctt = $("optionsRadios:checked").val();
+            alert(Hoten);
+        }
     </script>
     <!-- /#wrapper -->
     <!-- jQuery -->

@@ -39,9 +39,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">QLKS</a>
+                <a class="navbar-brand" href="#" style="font-size:20px;color:#ff0000">QUẢN LÝ KHÁCH SẠN</a>
             </div>
             <!-- /.navbar-header -->
+
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -254,25 +255,42 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search" style="font-weight:bold">
-                            Lễ tân
-                        </li>
-                        <li>
-                            <a href="QL_Letan.html"> Quản trị phòng</a>
-                        </li>
-                        <li>
-                            <a href="QL_Datphong.html" class="active"> Đặt phòng</a>
-                        </li>
-                        <li>
-                            <a href="index.html"> Danh sách khách hàng</a>
-                        </li>
-                        <li>
-                            <a href="index.html"> Thêm khách hàng</a>
-                        </li>
 
+                        <li>
+                            <a href="letan.html"><i class="fa fa-dashboard fa-fw"></i> Lễ tân<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="dangkidichvu.html">Đăng kí dịch vụ</a>
+                                </li>
+                                <li>
+                                    <a href="QL_Letan.html">Quản lý phòng</a>
+                                </li>
+                                <li>
+                                    <a href="QL_Datphong.html">Đăng kí phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gia hạn phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Trả phòng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tra cứu thông tin khách hàng</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="ThanhToan.html">Thanh Toán</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="quantri.html"><i class="fa fa-table fa-fw"></i> Quản trị<span class="fa arrow"></a>
+
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -376,16 +394,20 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <li class="active"><a href="#infomation" role="tab" data-toggle="tab" style="font-weight:bold">Thông tin khách hàng <span class="btn btn-info btn-circle" style="font-weight:bold">1</span></a></li>
-                                        <li><a href="#chooseroom" role="tab" data-toggle="tab" style="font-weight:bold">Chọn phòng cho khách <span class="btn btn-info btn-circle" style="font-weight:bold">2</span></a></li>
-                                        <li><a href="#payment" role="tab" data-toggle="tab" style="font-weight:bold">Đặt cọc <span class="btn btn-info btn-circle" style="font-weight:bold">3</span></a></li>
+                                        <li class="active"><a href="#infomation" role="tab" style="font-weight:bold">Thông tin khách hàng <span class="btn btn-info btn-circle" style="font-weight:bold">1</span></a></li>
+                                        <li><a href="#chooseroom" style="font-weight:bold">Chọn phòng cho khách <span class="btn btn-info btn-circle" style="font-weight:bold">2</span></a></li>
+                                        <li><a href="#payment" role="tab" style="font-weight:bold">Đặt cọc <span class="btn btn-info btn-circle" style="font-weight:bold">3</span></a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="infomation" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Họ tên:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
+                                                    <div style="float:left;width:20%"><label>Họ tên:<span style="color:red;">*</span></label></div>
+                                                    <div style="float:left;width:80%">
+                                                        <input class="form-control" id="inpName" data-type="" type="text" name="Name">
+                                                        <div id="Err_inpName" class="text-err"></div>
+                                                    </div>
+
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="form-group">
@@ -444,20 +466,24 @@
                                                     <div class="clearfix"></div>
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12">
+                                                <button class="btn btn-primary" style="float:right" onclick="Next()">Tiếp</button>
+                                            </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="tab-pane" id="chooseroom" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+                                        <div class="tab-pane" id="chooseroom" style="border:1px solid #ddd;border-top:none;padding:10px 0 0;">
                                             <div class="col-lg-12">
-                                                <div style="border:none" class="panel panel-primary">
+                                                <div style="border:none;margin-bottom:0;" class="panel panel-primary">
                                                     <div style="padding-top: 5px;" class="panel-body">
                                                         <div class="row">
                                                             <div class="col-lg-6">
                                                                 <div class="form-group">
                                                                     <div style="float:left;width:20%"><label>Loại phòng:</label></div>
                                                                     <div style="float:left;width:80%">
-                                                                        <select class="form-control">
-                                                                            <option>Phòng đơn</option>
-                                                                            <option>Phòng đôi</option>
+                                                                        <select class="form-control" id="selectTypeRoom">
+                                                                            <option value="0" selected>Tất cả</option>
+                                                                            <option value="1">Phòng đơn</option>
+                                                                            <option value="2">Phòng đôi</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="clearfix"></div>
@@ -467,24 +493,24 @@
                                                                 <div class="form-group">
                                                                     <div style="float:left;width:20%"><label>Chất lượng:</label></div>
                                                                     <div style="float:left;width:80%">
-                                                                        <select class="form-control">
-                                                                            <option>Bình thường</option>
-                                                                            <option>1 sao</option>
-                                                                            <option>2 sao</option>
+                                                                        <select class="form-control" id="selectVipRoom">
+                                                                            <option selected value="0">Tất cả</option>
+                                                                            <option value="1">Bình thường</option>
+                                                                            <option value="2">1 sao</option>
+                                                                            <option value="3">2 sao</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="clearfix"></div>
                                                                 </div>
                                                             </div>
-                                                            
                                                             <div class="row">
-                                                                <div style="overflow:auto;height:355px" class="col-lg-12">
+                                                                <div style="overflow:auto;height:350px" class="col-lg-12">
                                                                     <div style="border-radius:0;border:none;margin:0" class="panel panel-default">
                                                                         <div style="padding:5px 15px; " class="panel-heading">
                                                                             Tầng 1
                                                                         </div>
-                                                                        <div style="border:none" class="panel-body">
-                                                                            <div class="box">
+                                                                        <div style="border:none" class="panel-body" id="RoomInFirt">
+                                                                            <div class="box 2s single">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>
                                                                                     <div class="boxImage">
@@ -494,7 +520,7 @@
                                                                                 </div>
                                                                                 <div class="btnChoose">Chọn</div>
                                                                             </div>
-                                                                            <div class="box">
+                                                                            <div class="box 0s double">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="boxImage">
                                                                                         <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
@@ -503,7 +529,7 @@
                                                                                 </div>
                                                                                 <div class="btnChoose">Chọn</div>
                                                                             </div>
-                                                                            <div class="box">
+                                                                            <div class="box 0s single">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="boxImage">
                                                                                         <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
@@ -512,7 +538,7 @@
                                                                                 </div>
                                                                                 <div class="btnChoose">Chọn</div>
                                                                             </div>
-                                                                            <div class="box">
+                                                                            <div class="box 1s double">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i></div>
                                                                                     <div class="boxImage">
@@ -522,7 +548,7 @@
                                                                                 </div>
                                                                                 <div class="btnChoose">Chọn</div>
                                                                             </div>
-                                                                            <div class="box">
+                                                                            <div class="box 0s single">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="boxImage">
                                                                                         <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
@@ -531,7 +557,7 @@
                                                                                 </div>
                                                                                 <div class="btnChoose">Chọn</div>
                                                                             </div>
-                                                                            <div class="box">
+                                                                            <div class="box 0s double">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="boxImage">
                                                                                         <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
@@ -540,7 +566,7 @@
                                                                                 </div>
                                                                                 <div class="btnChoose">Chọn</div>
                                                                             </div>
-                                                                            <div class="box">
+                                                                            <div class="box 2s single">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>
                                                                                     <div class="boxImage">
@@ -591,8 +617,12 @@
 
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12">
+                                                <button class="btn btn-primary" style="float:right;margin-left:15px;" onclick="Next1()">Tiếp</button>
+                                                <button class="btn btn-primary" style="float:right" onclick="Pre1()">Quay lại</button>
+                                            </div>
                                             <div class="clearfix"></div>
-                                            
+
                                         </div>
                                         <div class="tab-pane" id="payment" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
                                             <div class="col-lg-6">
@@ -606,7 +636,7 @@
                                                     <div style="float:left;width:80%"><input class="form-control" disabled></div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
@@ -648,6 +678,7 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <a class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#myModal">Hoàn thành</a>
+                                                <button class="btn btn-primary" style="float:right;margin-right:15px;" onclick="Next()">Quay lại</button>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
@@ -663,49 +694,19 @@
         </div>
         <!-- /#page-wrapper -->
         <!-- Model -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                        <h4 id="myModalLabel" class="modal-title">Kiểm tra lại thông tin đặt phòng</h4>
-                    </div>
-                    <div class="modal-body" style="padding-top:0;border-top:none;">
-                        <div style="float:left;width:100%;height:200px">
-                            <label>Thông tin khách hàng:</label>
-                        </div>
-                        <div style="float:left;width:100%;height:200px">
-                            <label>Thông tin đặt phòng:</label>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="QL_Letan.html" class="btn btn-primary">Đặt phòng</a>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
+        
     </div>
     <script>
         $('#myTab a').click(function (e) {
             e.preventDefault()
             $(this).tab('show')
         })
-        $('.btnChoose').click(function (e) {
-            if ($(this).html() == 'Bỏ chọn') {
-            $(this).html('Chọn');
-            $(this).css('background-color', '#fff')
-            } else {
-                $(this).html('Bỏ chọn');
-                $(this).css('background-color', '#66bbec')
-            }
-        })
+        function Close() {
+            $('#myModal').hide();
+        }
         $('#optionsRadios1').click(function () {
             if ($('#dattrc').attr('data-check') == 0) {
-                $('#dattrc').attr('data-check',1)
+                $('#dattrc').attr('data-check', 1)
                 $('#dattrc').removeAttr('disabled')
             }
         });
@@ -714,12 +715,224 @@
                 $('#dattrc').attr('data-check', 0)
                 $('#dattrc').attr('disabled', 'disabled')
             }
-            
         });
+        function Next() {
+            $('.nav-tabs a[href="#chooseroom"]').tab('show')
+        }
+        function Pre1() {
+            $('.nav-tabs a[href="#infomation"]').tab('show')
+        }
+        function Next1() {
+            $('.nav-tabs a[href="#payment"]').tab('show')
+        }
+        //$('#selectVipRoom').change(function () {
+        //    var html = "";
+        //    switch ($(this).val()) {
+        //        case '0':
+        //            html += '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 101</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 102</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 103</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 104</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 105</div>' +
+        //        '</div>' +
+        //       ' <div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //               '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 106</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //                '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 107</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>';
+        //            break;
+        //        case '1':
+        //            html += '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 102</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 103</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 105</div>' +
+        //        '</div>' +
+        //       ' <div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //    '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //            '<div class="boxImage">' +
+        //               '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 106</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>';
+        //            break;
+        //        case '2':
+        //            html += '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 104</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>';
+        //            break;
+        //        case '3':
+        //            html += '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 101</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>' +
+        //                '<div class="box">' +
+        //        '<div class="boxroom phongtrong">' +
+        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
+        //            '<div class="boxImage">' +
+        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
+        //            '</div>' +
+        //            '<div class="boxname">Phòng 107</div>' +
+        //        '</div>' +
+        //        '<div class="btnChoose">Chọn</div>' +
+        //    '</div>';
+        //            break;
+        //    }
+        //    $('#RoomInFirt').html(html);
+        //});
+        $('#selectVipRoom').change(function () {
+            var TypeRoom = $('#selectTypeRoom').val();
+            switch ($(this).val()) {
+                case '0':
+                    $('.box').each(function () {
+                        $(this).removeAttr('hidden');
+                    });
+                    break;
+                case '1':
+                    $('.box').each(function () {
+                        $(this).attr('hidden', '');
+                    });
+                    $('.0s').removeAttr('hidden');
+                    break;
+                case '2':
+                    $('.box').each(function () {
+                        $(this).attr('hidden', '');
+                    });
+                    $('.1s').removeAttr('hidden');
+                    break;
+                case '3':
+                    $('.box').each(function () {
+                        $(this).attr('hidden', '');
+                    });
+                    $('.2s').removeAttr('hidden');
+                    break;
+            }
+        });
+        $('#selectTypeRoom').change(function () {
+            switch ($(this).val()) {
+                case '0':
+                    $('.box').each(function () {
+                        $(this).removeAttr('hidden');
+                    });
+                    break;
+                case '1':
+                    $('.box').each(function () {
+                        $(this).attr('hidden', '');
+                    });
+                    $('.single').removeAttr('hidden');
+                    break;
+                case '2':
+                    $('.box').each(function () {
+                        $(this).attr('hidden', '');
+                    });
+                    $('.double').removeAttr('hidden');
+                    break;
+            }
+        });
+
+        $('.btnChoose').click(function (e) {
+            if ($(this).html() == 'Bỏ chọn') {
+                $(this).html('Chọn');
+                $(this).css('background-color', '#fff')
+            } else {
+                $(this).html('Bỏ chọn');
+                $(this).css('background-color', '#66bbec')
+            }
+        })
     </script>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    
     <!-- Bootstrap Core JavaScript -->
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
