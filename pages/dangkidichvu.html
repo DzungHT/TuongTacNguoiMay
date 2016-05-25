@@ -17,13 +17,24 @@
     <!-- MetisMenu CSS -->
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
     <link href="../dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+    <link href="../dist/css/fullcalendar.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,6 +43,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .panel-title a {
             outline: none;
         }
@@ -41,28 +57,56 @@
             outline: none;
         }
 
-        .table-form td {
-            padding: 5px;
-        }
 
         .banan {
             border: 1px solid #ddd;
             height: 70px;
-            width:19%;
+            width: 19%;
             margin: 5px 2px;
-            float:left;
+            float: left;
+            display: table;
+            position: relative;
         }
-        .banan-top{
-            height:50px;
-            border-bottom:1px solid #ddd;
+
+            .banan:hover {
+                background-color: #f5f5f5;
+            }
+
+        .banan-content {
+            height: 50px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
         }
-        .banan .checkbox{
-            display:block;
+
+            .banan-content,
+            .banan-content * {
+                cursor: pointer;
+            }
+
+                .banan-content input {
+                    position: absolute;
+                    top: 1px;
+                    left: 5px;
+                }
+
+        .banan .checkbox {
+            display: block;
+            margin: 0;
         }
-        .panel-heading{
-            font-size:18px;
-            text-transform:uppercase;
+
+        .panel-heading {
+            font-size: 18px;
+            text-transform: uppercase;
         }
+
+        #timphong .radio {
+            padding: 3px 0;
+        }
+
+            #timphong .radio:hover {
+                background-color: #f2dede;
+            }
     </style>
 </head>
 
@@ -143,15 +187,19 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
+
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Đăng ký dịch vụ</h1>
                     </div>
                 </div>
                 <div class="row">
+
+
 
                     <div class="col-lg-6">
                         <!--Thông tin khách hàng-->
@@ -165,47 +213,133 @@
                                         <div class="col-sm-offset-2 col-sm-10">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input id="checkbox" type="checkbox" onchange="a(this)"> Khách đang ở trong khách sạn
+                                                    <input id="inp-trongks" type="checkbox" onchange="a(this)"> Khách đang ở trong khách sạn
+                                                    <script>
+                                                        function a(element) {
+                                                            if (element.checked == true) {
+                                                                $('#phong input').removeAttr('disabled');
+                                                                $('#btn-timphong').removeClass('disabled');
+                                                                $('#ct-phong').html($('#inp-phong').val());
+                                                            }
+                                                            else {
+                                                                $('#phong input').attr('disabled', '');
+                                                                $('#btn-timphong').addClass('disabled');
+                                                                $('#ct-phong').html('(Khách ở ngoài)');
+                                                            }
+                                                        }
+                                                    </script>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div id="phong" class="form-group">
                                         <label for="hoten" class="col-sm-2 control-label">Phòng:</label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" disabled>
+                                                <input id="inp-phong" type="text" class="form-control" readonly>
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default disabled">
+                                                    <button type="button" class="btn btn-default disabled" id="btn-timphong" title="">
                                                         <i class="fa fa-search"></i>
                                                     </button>
                                                 </span>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="hoten" class="col-sm-2 control-label">Họ tên:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="hoten" placeholder="Họ tên">
+                                            <input type="text" class="form-control" name="Hoten" placeholder="Họ tên" onchange="$('#ct-hoten').html(this.value)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="diachi" class="col-sm-2 control-label">Địa chỉ:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ">
+                                            <input type="text" class="form-control" name="Diachi" placeholder="Địa chỉ" onchange="$('#ct-diachi').html(this.value)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="sdt" class="col-sm-2 control-label">SĐT:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="sdt" placeholder="Số điện thoại">
+                                            <input type="text" class="form-control" name="SDT" placeholder="Số điện thoại" onchange="$('#ct-sdt').html(this.value)">
                                         </div>
                                     </div>
                                 </form>
+
+                                <!-- Modal tìm phòng -->
+                                <div class="modal fade" id="timphong" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+                                                <div class="panel-group" id="accordion">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading" role="tab" id="heading1">
+                                                            <h4 class="panel-title">
+                                                                <a style="display:block" role="button" data-toggle="collapse" data-parent="#accordion" href="#Tang1" aria-expanded="false" aria-controls="collapseOne">
+                                                                    Tầng 1
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="Tang1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+                                                            <div class="panel-body">
+                                                                <div class="radio"> <label style="display:block"><input name="phong" type="radio" value="P101"> <span>P101</span></label> </div>
+                                                                <div class="radio"> <label style="display:block"><input name="phong" type="radio" value="P102"> <span>P102</span></label> </div>
+                                                                <div class="radio"> <label style="display:block"><input name="phong" type="radio" value="P103"> <span>P103</span></label> </div>
+                                                                <div class="radio"> <label style="display:block"><input name="phong" type="radio" value="P104"> <span>P104</span></label> </div>
+                                                                <div class="radio"> <label style="display:block"><input name="phong" type="radio" value="P105"> <span>P105</span></label> </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading" role="tab" id="heading2">
+                                                            <h4 class="panel-title">
+                                                                <a style="display:block" role="button" data-toggle="collapse" data-parent="#accordion" href="#tang2" aria-expanded="false" aria-controls="collapseOne">
+                                                                    Tầng 2
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="tang2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                                                            <div class="panel-body">
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P201" disabled> <span>P201 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P202" disabled> <span>P202 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P203" disabled> <span>P203 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P204" disabled> <span>P204 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P205" disabled> <span>P205 (Phòng trống)</span></label> </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading" role="tab" id="headingOne">
+                                                            <h4 class="panel-title">
+                                                                <a style="display:block" role="button" data-toggle="collapse" data-parent="#accordion" href="#tang3" aria-expanded="false" aria-controls="collapseOne">
+                                                                    Tầng 3
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="tang3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                            <div class="panel-body">
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P301" disabled> <span>P301 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P302" disabled> <span>P302 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P303" disabled> <span>P303 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P304" disabled> <span>P304 (Phòng trống)</span></label> </div>
+                                                                <div class="radio disabled" title="Phòng trống không thể chọn"> <label style="display:block"><input name="phong" type="radio" value="P305" disabled> <span>P305 (Phòng trống)</span></label> </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                <button id="btn-chonphong" type="button" class="btn btn-primary">Xác nhận</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
+
                         <!--Chọn dịch vụ-->
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -216,7 +350,7 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            <input type="checkbox" /> <a data-toggle="collapse" data-parent="#accordion" href="#dichvunhaan"> Dịch vụ nhà ăn</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#dichvunhaan"> Dịch vụ nhà ăn</a>
                                         </div>
                                     </div>
                                     <div id="dichvunhaan" class="panel-collapse collapse in">
@@ -225,340 +359,32 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="col-lg-12">
-                                                        <form class="form-horizontal">
-                                                            <table style="width:100%" class="table-form">
-                                                                <tr>
-                                                                    <td width="100px"><label for="datetimepicker1" class="control-label">Từ:</label></td>
-                                                                    <td><input type="text" class="form-control" id="datetimepicker1" placeholder="DD/MM/YYYY HH:mm"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><label for="datetimepicker2" class="control-label">Đến:</label></td>
-                                                                    <td><input type="text" class="form-control" id="datetimepicker2" placeholder="DD/MM/YYYY HH:mm"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><label class="control-label">Chọn bàn:</label></td>
-                                                                    <td id="chonban"></td>
-                                                                </tr>
-                                                            </table>
-															
-															<!--Dãy bàn 1-->
-                                                            <div class="row">
-                                                                <!--Bàn 1-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center alert-danger">
-                                                                        <div class="checkbox disabled">
-                                                                            <label>
-                                                                                <input type="checkbox" value="" disabled>
-                                                                                Bàn 1
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                        <div id="calendar"></div>
+                                                        <!--Dãy bàn 1 -->
+                                                        <div class="row">
+                                                            <!--Bàn 1-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-1">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 1
+                                                                    </label>
                                                                 </div>
 
-                                                                <!--Bàn 2-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 2
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="1" id="banan-status-1" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 1</h4>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--Bàn 3-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 3
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-1"></div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--Bàn 4-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 4
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--Bàn 5-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 5
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <!--Bàn 6-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 6
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--Bàn 7-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 7
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--Bàn 8-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center alert-danger">
-                                                                        <div class="checkbox disabled">
-                                                                            <label>
-                                                                                <input type="checkbox" value="" disabled>
-                                                                                Bàn 8
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 8</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--Bàn 9-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center alert-danger">
-                                                                        <div class="checkbox disabled">
-                                                                            <label>
-                                                                                <input type="checkbox" value="" disabled>
-                                                                                Bàn 9
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 9</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--Bàn 10-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 10
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
-
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="1" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="1" type="button" class="btn btn-primary xn" data-dismiss="modal">Xác nhận</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -566,76 +392,482 @@
 
                                                                 
                                                             </div>
-                                                            <div class="row">
-                                                                <!--Bàn 11-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                Bàn 11
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
 
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 1</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
+                                                            <!--Bàn 2-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-2">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 2
+                                                                    </label>
+                                                                </div>
 
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                                                                    </div>
-                                                                                </div>
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="2" id="banan-status-2" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 2</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-2"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="2" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="2" type="button" class="btn btn-primary xn" data-dismiss="modal">Xác nhận</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
-                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
-                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
-                                                                <div style="margin:5px 2px;width:19%;float:left"></div>
 
-                                                                 <!--Bàn 12-->
-                                                                <div class="banan">
-                                                                    <div class="banan-top text-center alert-danger">
-                                                                        <div class="checkbox disabled">
-                                                                            <label>
-                                                                                <input type="checkbox" value="" disabled>
-                                                                                Bàn 12
-                                                                            </label>
+                                                            </div>
+
+                                                            <!--Bàn 3-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-3">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 3
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="3" id="banan-status-3" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 3</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-3"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="3" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="3" type="button" class="btn btn-primary xn" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="text-center">
-                                                                        <a href="javascipt:;" data-toggle="modal" data-target="#banan-status">Xem</a>
+                                                                </div>
 
-                                                                        <div class="modal fade" id="banan-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                        <h4 class="modal-title">Thông tin bàn ăn 12</h4>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
 
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                                            </div>
+
+                                                            <!--Bàn 4-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-4">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 4
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="4" id="banan-status-4" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 4</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-4"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="4" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="4" type="button" class="btn btn-primary xn" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            <!--Bàn 5-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-5">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 5
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="5" id="banan-status-5" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 5</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-5"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="5" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="5" type="button" class="btn btn-primary  xn" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Dãy bàn 2 -->
+                                                        <div class="row">
+                                                            <!--Bàn 6-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-6">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 6
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="6" id="banan-status-6" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 6</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-6"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="6" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="6" type="button" class="btn btn-primary xn" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            <!--Bàn 7-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-7">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 7
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="7" id="banan-status-7" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 7</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-7"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="7" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="7" type="button" class="btn btn-primary xn" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            <!--Bàn 8-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-8">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 8
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="8" id="banan-status-8" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 8</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-8"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="8" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="8" type="button" class="xn btn btn-primary" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            <!--Bàn 9-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-9">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 9
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="9" id="banan-status-9" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 9</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-9"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer  text-center">
+                                                                                <button data-target="9" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="9" type="button" class="xn btn btn-primary" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            <!--Bàn 10-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-10">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 10
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="10" id="banan-status-10" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 10</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-10"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="10" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="10" type="button" class="xn btn btn-primary" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <!-- Dãy bàn 3 -->
+                                                        <div class="row">
+                                                            <!--Bàn 11-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-11">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 11
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="11" id="banan-status-11" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 11</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-11"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="11" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="11" type="button" class="xn btn btn-primary" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            <div style="margin:5px 2px;width:19%;float:left"></div>
+                                                            <div style="margin:5px 2px;width:19%;float:left"></div>
+                                                            <div style="margin:5px 2px;width:19%;float:left"></div>
+
+                                                            <!--Bàn 12-->
+                                                            <div class="banan">
+                                                                <div class="banan-content" data-toggle="modal" data-target="#banan-status-12">
+                                                                    <input type="checkbox">
+                                                                    <label>
+                                                                        Bàn 12
+                                                                    </label>
+                                                                </div>
+
+                                                                <!--modal timesheet-->
+                                                                <div class="modal fade banan-status" data-number="12" id="banan-status-12" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 12</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div id="calendar-12"></div>
+                                                                            </div>
+                                                                            <div class="modal-footer text-center">
+                                                                                <button data-target="12" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                                <button data-target="12" type="button" class="xn btn btn-primary" data-dismiss="modal">Xác nhận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!--Setup-->
+                                                        <div class="modal fade" id="setup" tabindex="-1" aria-labelledby="myModalLabel">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                        <h4 class="modal-title text-center text-danger">Thông tin đăng kí</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form class="form-horizontal">
+                                                                            <div class="form-group">
+                                                                                <label for="hoten" class="col-sm-3 control-label">Tên khách hàng:</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input id="setup-hoten" type="text" class="form-control" name="Hoten" placeholder="Tên khách hàng" value="" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="hoten" class="col-sm-3 control-label">Từ ngày:</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <div id="input-daterange" class="input-daterange input-group">
+                                                                                        <input type="text" name="start" class="input-sm form-control" id="inpFromDate" placeholder="M/D/YYYY">
+                                                                                        <span class="input-group-addon">đến ngày</span>
+                                                                                        <input type="text" name="end" class="input-sm form-control" id="inpToDate" placeholder="M/D/YYYY">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Từ giờ:</label>
+                                                                                <div style="padding-right:0;" class="col-md-3">
+                                                                                    <select class="form-control" id="txtFromHour">
+                                                                                        <option value="06:00">06:00</option>
+                                                                                        <option value="06:30">06:30</option>
+                                                                                        <option value="07:00">07:00</option>
+                                                                                        <option value="07:30">07:30</option>
+                                                                                        <option value="08:00">08:00</option>
+                                                                                        <option value="08:30">08:30</option>
+                                                                                        <option value="09:00">09:00</option>
+                                                                                        <option value="09:30">09:30</option>
+                                                                                        <option value="10:00">10:00</option>
+                                                                                        <option value="10:30">10:30</option>
+                                                                                        <option value="11:00">11:00</option>
+                                                                                        <option value="11:30">11:30</option>
+                                                                                        <option value="12:00">12:00</option>
+                                                                                        <option value="12:30">12:30</option>
+                                                                                        <option value="13:00">13:00</option>
+                                                                                        <option value="13:30">13:30</option>
+                                                                                        <option value="14:00">14:00</option>
+                                                                                        <option value="14:30">14:30</option>
+                                                                                        <option value="15:00">15:00</option>
+                                                                                        <option value="15:30">15:30</option>
+                                                                                        <option value="16:00">16:00</option>
+                                                                                        <option value="16:30">16:30</option>
+                                                                                        <option value="17:00">17:00</option>
+                                                                                        <option value="17:30">17:30</option>
+                                                                                        <option value="18:00">18:00</option>
+                                                                                        <option value="18:30">18:30</option>
+                                                                                        <option value="19:00">19:00</option>
+                                                                                        <option value="19:30">19:30</option>
+                                                                                        <option value="20:00">20:00</option>
+                                                                                        <option value="20:30">20:30</option>
+                                                                                        <option value="21:00">21:00</option>
+                                                                                        <option value="21:30">21:30</option>
+                                                                                        <option value="22:00">22:00</option>
+                                                                                        <option value="22:30">22:30</option>
+                                                                                        <option value="23:00">23:00</option>
+                                                                                        <option value="23:30">23:30</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <label class="col-md-3 control-label">Đến giờ:</label>
+                                                                                <div style="padding-left:0;" class="col-md-3">
+                                                                                    <select class="form-control" id="txtToHour">
+                                                                                        <option value="06:00">06:00</option>
+                                                                                        <option value="06:30">06:30</option>
+                                                                                        <option value="07:00">07:00</option>
+                                                                                        <option value="07:30">07:30</option>
+                                                                                        <option value="08:00">08:00</option>
+                                                                                        <option value="08:30">08:30</option>
+                                                                                        <option value="09:00">09:00</option>
+                                                                                        <option value="09:30">09:30</option>
+                                                                                        <option value="10:00">10:00</option>
+                                                                                        <option value="10:30">10:30</option>
+                                                                                        <option value="11:00">11:00</option>
+                                                                                        <option value="11:30">11:30</option>
+                                                                                        <option value="12:00">12:00</option>
+                                                                                        <option value="12:30">12:30</option>
+                                                                                        <option value="13:00">13:00</option>
+                                                                                        <option value="13:30">13:30</option>
+                                                                                        <option value="14:00">14:00</option>
+                                                                                        <option value="14:30">14:30</option>
+                                                                                        <option value="15:00">15:00</option>
+                                                                                        <option value="15:30">15:30</option>
+                                                                                        <option value="16:00">16:00</option>
+                                                                                        <option value="16:30">16:30</option>
+                                                                                        <option value="17:00">17:00</option>
+                                                                                        <option value="17:30">17:30</option>
+                                                                                        <option value="18:00">18:00</option>
+                                                                                        <option value="18:30">18:30</option>
+                                                                                        <option value="19:00">19:00</option>
+                                                                                        <option value="19:30">19:30</option>
+                                                                                        <option value="20:00">20:00</option>
+                                                                                        <option value="20:30">20:30</option>
+                                                                                        <option value="21:00">21:00</option>
+                                                                                        <option value="21:30">21:30</option>
+                                                                                        <option value="22:00">22:00</option>
+                                                                                        <option value="22:30">22:30</option>
+                                                                                        <option value="23:00">23:00</option>
+                                                                                        <option value="23:30">23:30</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </form>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button id="btn-setup-del"type="button" class="btn btn-danger" data-dismiss="modal">Xóa</button>
+                                                                        <button id="btn-setup" type="button" class="btn btn-primary" data-dismiss="modal">Xác nhận</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -696,15 +928,15 @@
                         <!--Đặt cọc-->
                         <div class="panel panel-red">
                             <div class="panel-heading">
-                                3. ĐẶT CỌC
+                                3. Hình thức thanh toán
                             </div>
                             <div class="panel-body">
 
                             </div>
                         </div>
                     </div>
-				
-					<div class="col-lg-6">
+
+                    <div class="col-lg-6">
                         <div class="panel panel-red">
                             <div class="panel-heading">
                                 CHI TIẾT ĐĂNG KÍ DỊCH VỤ
@@ -713,26 +945,26 @@
                                 <!-- Thông tin khách hàng -->
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        
+
                                         <h4><b>Thông tin khách hàng</b></h4>
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Họ tên:</div>
-                                            <div class="col-lg-9">Hoàng Trí Dũng</div>
+                                            <div class="col-lg-9" id="ct-hoten"></div>
                                         </div>
 
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Địa chỉ:</div>
-                                            <div class="col-lg-9">Nguyên Xá - Minh Khai - Từ Liêm - Hà Nội</div>
+                                            <div class="col-lg-9" id="ct-diachi"></div>
                                         </div>
 
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Số điện thoại:</div>
-                                            <div class="col-lg-9">0988.59.44.48</div>
+                                            <div class="col-lg-9" id="ct-sdt"></div>
                                         </div>
 
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Phòng:</div>
-                                            <div class="col-lg-9">(Khách ở ngoài)</div>
+                                            <div class="col-lg-9" id="ct-phong"></div>
                                         </div>
 
                                         <hr />
@@ -743,22 +975,14 @@
                                             <thead>
                                                 <tr class="bg-warning">
                                                     <th width="30%">Tên dịch vụ</th>
-                                                    <th width="50%">Chi tiết</th>
-                                                    <th width="20%">Giá tiền</th>
+                                                    <th width="25%">Thời gian bắt đầu</th>
+                                                    <th width="25%">Thời gian kết thúc</th>
+                                                    <th width="20%">Đặt cọc / Giá tiền</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="tb-ctdv">
                                                 <tr>
                                                     <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -780,27 +1004,18 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
-				
-				
-				
-				</div>
+
+
+
+                </div>
             </div>
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
@@ -809,33 +1024,236 @@
     <script src="../dist/js/moment.js"></script>
     <script src="../dist/js/bootstrap-datetimepicker.js"></script>
 
+    <!-- Full Calender-->
+    <!--<script src="../bower_components/fullcalendar-2.7.2/fullcalendar.min.js"></script>-->
+    <script src="../dist/js/fullcalendar.js"></script>
+
+    <!--Data-->
     <script>
-        $(function () {
-            $('#datetimepicker1').datetimepicker({
-                format: 'DD/MM/YYYY HH:mm',
-                useCurrent: true,
-                defaultDate: moment()
+        var room = [
+            { id: 'P101', Hoten: 'Hoàng Trí Dũng', Diachi: 'Nguyên Xá - Minh Khai - Bắc Từ Liêm - Hà Nội', SDT: '0988594448', Chuathue: false }, { id: 'P102', Hoten: 'Vương Đăng Đoàn', Diachi: 'Nguyên Xá - Minh Khai - Bắc Từ Liêm - Hà Nội', SDT: '0961793995', Chuathue: false }, { id: 'P103', Hoten: 'Nguyễn Quang Huy', Diachi: 'Đông Anh - Hà Nội', SDT: '01648908901', Chuathue: false }, { id: 'P104', Hoten: 'Trần Trung Hiếu', Diachi: 'Hà Nội', SDT: '01693215992', Chuathue: false }, { id: 'P105', Hoten: 'Nguyễn Đăng Tú', Diachi: 'Hà Nội', SDT: '01234567891', Chuathue: false },
+            { id: 'P201', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P202', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P203', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P204', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P205', Hoten: '', Diachi: '', SDT: '', Chuathue: true },
+            { id: 'P301', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P302', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P303', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P304', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P305', Hoten: '', Diachi: '', SDT: '', Chuathue: true }
+        ];
+        
+    </script>
+
+
+    <!--Custom-->
+    <script>
+
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+
+        $('#btn-timphong').click(function () {
+            if ($('#inp-trongks')[0].checked) {
+                $('#timphong').modal('show');
+            } else {
+
+            }
+        });
+        $('#btn-timphong').mouseenter(function (e) {
+            if (!$('#inp-trongks')[0].checked) {
+                e.currentTarget.title = 'Phải chọn Khách đang ở khách sạn thì mới có thể thực hiện chức năng này';
+            }
+            else {
+                e.currentTarget.title = '';
+            }
+        })
+
+        $('#btn-chonphong').click(function (e) {
+            var value = "";
+            $('input[name="phong"]').each(function () {
+                if (this.checked) {
+                    value = this.value;
+                }
             });
-            $(function () {
-                $('#datetimepicker2').datetimepicker({
-                    format: 'DD/MM/YYYY HH:mm',
-                    useCurrent: true,
-                    defaultDate: moment().hours(moment().hours() + 1)
-                });
+            $('#timphong').modal('hide');
+            $('#inp-phong').val(value);
+            room.forEach(function (item) {
+                if (item.id == value) {
+                    $('input[name="Hoten"]').val(item.Hoten);
+                    $('input[name="Diachi"]').val(item.Diachi);
+                    $('input[name="SDT"]').val(item.SDT);
+                    $('#ct-hoten').html(item.Hoten);
+                    $('#ct-diachi').html(item.Diachi);
+                    $('#ct-sdt').html(item.SDT);
+                    $('#ct-phong').html(item.id);
+                }
             });
         });
-        function a(e) {
-            if (e.checked == true) {
-                $('#phong input').removeAttr('disabled');
-                $('#phong button').removeClass('disabled');
-            }
-            else
-            {
-                $('#phong input').attr('disabled','');
-                $('#phong button').addClass('disabled');
-            }
-        }
+
+
+
     </script>
+
+    <!-- script cho Bàn ăn-->
+    <script>
+        var startHour, endHour;
+        var banCurrent;
+        var eventSelected;
+        
+        var idDel = [];
+        var OldEvent = [[], [], [], [], [], [], [], [], [], [], [], [], []];
+        var dvBanan = [[], [], [], [], [], [], [], [], [], [], [], [], []];
+        var xuly = [[], [], [], [], [], [], [], [], [], [], [], [], []];
+
+        $('.banan-status').on('shown.bs.modal', function (e) {
+            var i = parseInt($(e.currentTarget).attr('data-number'));
+            xuly[i].splice(0, xuly[i].length); // make xuly empty
+            xuly[i] = xuly[i].concat(dvBanan[i]);
+            banCurrent = i;
+            $('#calendar-' + i).fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'agendaWeek'
+                },
+                defaultView: 'agendaWeek',
+                defaultDate: moment(),
+                businessHours: {
+                    start: '6:00', // a start time (6am in this example)
+                    end: '23:00', // an end time (23pm in this example)
+                },
+                selectable: true,
+                selectHelper: true,
+                selectOverlap: false,
+                selectConstraint: "businessHours",
+                select: function (start, end) {
+                    eventSelected = null;
+                    startHour = start;
+                    endHour = end;
+                    $('#inpFromDate').val(startHour.format('M/D/YYYY'));
+                    $('#inpToDate').val(endHour.format('M/D/YYYY'));
+                    $('#txtFromHour').val(startHour.format('HH:mm'));
+                    $('#txtToHour').val(endHour.format('HH:mm'));
+                    $('#setup').modal('show');
+                },
+                eventClick: function (calEvent, jsEvent, view) {
+                    eventSelected = calEvent;
+                    
+                    $('#inpFromDate').val(calEvent._start.format('M/D/YYYY'));
+                    $('#txtFromHour').val(calEvent._start.format('HH:mm'));
+
+                    $('#inpToDate').val(calEvent._end.format('M/D/YYYY'));
+                    $('#txtToHour').val(calEvent._end.format('HH:mm'));
+                    $('#setup').modal('show');
+                },
+                editable: false,
+                eventLimit: true, // allow "more" link when too many events
+                events: dvBanan[i].concat(OldEvent[i])
+            });
+        })
+
+        $('#btn-setup').click(function (e) {
+            if (eventSelected == null) {
+                var title = $('#ct-hoten').text() + ' - ' + $('#ct-phong').text()
+                if ($('#ct-hoten').html()) {
+                    eventData = {
+                        title: title,
+                        start: startHour,
+                        end: endHour
+                    };
+                    $('#calendar-' + banCurrent).fullCalendar('renderEvent', eventData, true); // stick? = true
+                    var x = $('#calendar-' + banCurrent).fullCalendar('clientEvents');
+                    xuly[banCurrent].push(x[x.length - 1]);
+                } else {
+                    alert('Bạn phải nhập thông tin khách hàng vào trước!');
+                    $('#calendar-' + banCurrent).fullCalendar('unselect');
+                    $('#banan-status-' + banCurrent).modal('hide');
+                }
+            }
+            else {
+                var x = moment($('#inpFromDate').val() + ' ' + $('#txtFromHour').val(), 'M/D/YYYY HH:mm');
+                eventSelected.start = moment($('#inpFromDate').val() + ' ' + $('#txtFromHour').val(), 'M/D/YYYY HH:mm');
+                eventSelected.end = moment($('#inpToDate').val() + ' ' + $('#txtToHour').val(), 'M/D/YYYY HH:mm');
+                $('#calendar-' + banCurrent).fullCalendar('updateEvent', eventSelected);
+                var index = xuly[banCurrent].findIndex(function (e) {
+                    return e._id == eventSelected._id
+                });
+                xuly[banCurrent][index] = eventSelected;
+            }
+        });
+
+        $('#btn-setup-del').click(function () {
+            if (eventSelected == null) {
+                $('#calendar-' + banCurrent).fullCalendar('unselect');
+            }
+            else {
+                var r = confirm("Bạn chắc chắn muốn xóa mục này?");
+                if (r === true) {
+                    var index = xuly[banCurrent].findIndex(function (x) {
+                        return x._id == eventSelected._id
+                    });
+                    if (index != -1) {
+                        xuly[banCurrent].splice(index, 1);
+                    }
+                    $('#calendar-' + banCurrent).fullCalendar('removeEvents', eventSelected._id);
+                }
+            }
+        });
+
+        $('.banan-status .xn').click(function (e) {
+            var i = parseInt($(e.currentTarget).attr("data-target"));
+            dvBanan[i].splice(0, dvBanan[i].length); // make dvBanan empty
+            dvBanan[i].concat(xuly[i]);
+
+            refreshTb();
+        });
+
+        $('.banan-status .tv').click(function (e) {
+            var i = parseInt($(e.currentTarget).attr("data-target"));
+            while (idDel.length > 0) {
+                idDel.pop();
+            }
+            $('#calendar-' + banCurrent).fullCalendar('removeEvents');
+        });
+
+        $('#inpFromDate').datetimepicker({
+            minDate: startHour,
+            format: "M/D/YYYY"
+        });
+        $('#inpToDate').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            minDate: startHour,
+            format: "M/D/YYYY"
+        });
+        $("#inpFromDate").on("dp.change", function (e) {
+            $('#inpToDate').data("DateTimePicker").minDate(e.date);
+        });
+        $("#inpToDate").on("dp.change", function (e) {
+            $('#inpFromDate').data("DateTimePicker").maxDate(e.date);
+        });
+        
+        
+
+
+        function refreshTb() {
+            var html = '';
+            dvBanan.forEach(function (item1, index) {
+                item1.forEach(function (item2) {
+                    if (item2 != null) {
+                        var time = (item2.end._i[3] * 60 + item2.end._i[4] - item2.start._i[3] * 60 - item2.start._i[4]) / 60;
+                        var money = 200 * time;
+                        html +=
+'<tr>\
+    <td>Dịch vụ nhà ăn - Bàn '+ index + '</td>\
+    <td>'+ item2.start.format('M/D/YYYY HH:mm') + '</td>\
+    <td>' + item2.end.format('M/D/YYYY HH:mm') + '</td>\
+    <td class="text-right">' + money.toLocaleString("en-US") + ',000 VNĐ</td>\
+</tr>';
+
+                    }
+                });
+
+            });
+            $('#tb-ctdv').html(html);
+        }
+
+    </script>
+
 </body>
 
 </html>
