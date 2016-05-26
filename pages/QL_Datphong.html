@@ -44,50 +44,51 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
+				Vương Đăng Đoàn
+				<li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-envelope fa-fw"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Phòng 101</strong>
                                     <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Khách mới trả phòng hiện tại phòng đang trống</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Phòng 103</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>Today</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Khách vừa trả phòng yêu cần dọn</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Phòng 107</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>Today</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Đến giờ cần trả phòng</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
+                                <strong>Đọc tất cả thông báo</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -95,8 +96,27 @@
                     <!-- /.dropdown-messages -->
                 </li>
                 
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> 
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+				
             </ul>
-            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -236,84 +256,115 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <li class="active"><a href="#infomation" role="tab" style="font-weight:bold">Thông tin khách hàng <span class="btn btn-info btn-circle" style="font-weight:bold">1</span></a></li>
+                                        <li class="active"><a href="#frminfomation" role="tab" style="font-weight:bold">Thông tin khách hàng <span class="btn btn-info btn-circle" style="font-weight:bold">1</span></a></li>
                                         <li><a href="#chooseroom" style="font-weight:bold">Chọn phòng cho khách <span class="btn btn-info btn-circle" style="font-weight:bold">2</span></a></li>
                                         <li><a href="#payment" role="tab" style="font-weight:bold">Đặt cọc <span class="btn btn-info btn-circle" style="font-weight:bold">3</span></a></li>
                                     </ul>
                                     <div class="tab-content">
-                                        <div class="tab-pane active" id="infomation" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Họ tên:<span style="color:red;">*</span></label></div>
-                                                    <div style="float:left;width:80%">
-                                                        <input class="form-control" id="inpName" data-type="" type="text" name="Name">
-                                                        <div id="Err_inpName" class="text-err"></div>
-                                                    </div>
+                                        <div class="tab-pane active" id="frminfomation" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+											<div class="col-lg-6">
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>Họ tên:<span style="color:red;">*</span></label></div>
+													<div style="float:left;width:80%">
+														<input class="form-control" value="" id="inpHoten" data-type="" type="text" name="Name">
+														<div id="Err_inpHoten" class="text-alert" style="width: 70%; float: right; display: none; color: #f63c3c;"></div>
+													</div>
+			
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>Địa chỉ:</label></div>
+													<div style="float:left;width:80%"><input class="form-control" value="" id="inpDiachi"></div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>Email:<span style="color:red;">*</span></label></div>
+													<div style="float:left;width:80%"><input class="form-control" value="" id="inpEmail">
+													<div id="Err_inpEmail" class="text-alert" style="width: 70%; float: right; display: none; color: #f63c3c;"></div>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>Người lớn:</label></div>
+													<div style="float:left;width:80%"><input class="form-control" value="" id="inpNguoilon"></div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label for="inpNgayden" class="control-label">Ngày đến<span style="color:red;">*</span></label></div>
+													<div style="float:left;width:80%">
+													<input type="text" class="form-control" id="inpNgayden" placeholder="DD/MM/YYYY HH:mm">
+													<div id="Err_inpNgayden" class="text-alert" style="width: 70%; float: right; display: none; color: #f63c3c;"></div>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%">
+													<label><input id="checkbox" type="checkbox" onchange="a(this)"> Khách hàng cũ</label>
+													</div>
+													<div style="float:left;width:80%">
+													<select class="form-control" >
+															<option>Nguyễn Quang Huy-0876456221</option>
+															<option>Hoàng Trí Dũng-0123456789</option>
+															
+														</select>
+													</div >
+													
+													<div class="clearfix"></div>
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>CMND:<span style="color:red;">*</span></label></div>
+													<div style="float:left;width:80%"><input class="form-control" value="" id="inpCMND">
+													<div id="Err_inpCMND" class="text-alert" style="width: 70%; float: right; display: none; color: #f63c3c;"></div>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>Điện thoại:<span style="color:red;">*</span></label></div>
+													<div style="float:left;width:80%"><input class="form-control" value="" id="inpDienthoai">
+													<div id="Err_inpDienthoai" class="text-alert" style="width: 70%; float: right; display: none; color: #f63c3c;"></div>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>Nhóm khách:</label></div>
+													<div style="float:left;width:80%">
+														<select class="form-control">
+															<option>Khách thường(Đặt cọc)</option>
+															<option>Khách VIP(Đặt cọc)</option>
+															<option>Đối tác làm ăn</option>
+															<option>Người nhà</option>
+															<option>Can bộ cao cấp</option>
+														</select>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label>Trẻ em:</label></div>
+													<div style="float:left;width:80%"><input class="form-control" value="" id="inpTreem"></div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													<div style="float:left;width:20%"><label for="inpNgaydi" class="control-label">Ngày đi:<span style="color:red;">*</span></label></div>
+													<div style="float:left;width:80%">
+													<input type="text" class="form-control" id="inpNgaydi" placeholder="DD/MM/YYYY HH:mm">
+													<div id="Err_inpNgaydi" class="text-alert" style="width: 70%; float: right; display: none; color: #f63c3c;"></div>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+												<div class="form-group">
+													
+													<button class="btn btn-primary" style="float:right" onclick="Next()">Tiếp</button>
+			
+													<div class="clearfix"></div>
+												</div>
+											</div>
 
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Địa chỉ:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Email:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Người lớn:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Ngày đến:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>CMND:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Điện thoại:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Nhóm khách:</label></div>
-                                                    <div style="float:left;width:80%">
-                                                        <select class="form-control">
-                                                            <option>Khách thường(Đặt cọc)</option>
-                                                            <option>Khách VIP(Đặt cọc)</option>
-                                                            <option>Đối tác làm ăn</option>
-                                                            <option>Người nhà</option>
-                                                            <option>Can bộ cao cấp</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Trẻ em:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Ngày đi:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <button class="btn btn-primary" style="float:right" onclick="Next()">Tiếp</button>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="tab-pane" id="chooseroom" style="border:1px solid #ddd;border-top:none;padding:10px 0 0;">
+											<div class="clearfix"></div>
+										</div>
+                            
+										<div class="tab-pane" id="chooseroom" style="border:1px solid #ddd;border-top:none;padding:10px 0 0;">
                                             <div class="col-lg-12">
                                                 <div style="border:none;margin-bottom:0;" class="panel panel-primary">
                                                     <div style="padding-top: 5px;" class="panel-body">
@@ -356,69 +407,25 @@
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>
                                                                                     <div class="boxImage">
-                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                        <div><img style="width:100%;height:50px;" src="../image/IconRoom.png"></div>
                                                                                     </div>
                                                                                     <div class="boxname">Phòng 101</div>
                                                                                 </div>
-                                                                                <div class="btnChoose">Chọn</div>
+                                                                                <div class="btnChoose" data-id="101">Chọn</div>
                                                                             </div>
+                                                                             
+																			
                                                                             <div class="box 0s double">
                                                                                 <div class="boxroom phongtrong">
                                                                                     <div class="boxImage">
-                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
-                                                                                    </div>
-                                                                                    <div class="boxname">Phòng 102</div>
-                                                                                </div>
-                                                                                <div class="btnChoose">Chọn</div>
-                                                                            </div>
-                                                                            <div class="box 0s single">
-                                                                                <div class="boxroom phongtrong">
-                                                                                    <div class="boxImage">
-                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
-                                                                                    </div>
-                                                                                    <div class="boxname">Phòng 103</div>
-                                                                                </div>
-                                                                                <div class="btnChoose">Chọn</div>
-                                                                            </div>
-                                                                            <div class="box 1s double">
-                                                                                <div class="boxroom phongtrong">
-                                                                                    <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i></div>
-                                                                                    <div class="boxImage">
-                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
-                                                                                    </div>
-                                                                                    <div class="boxname">Phòng 104</div>
-                                                                                </div>
-                                                                                <div class="btnChoose">Chọn</div>
-                                                                            </div>
-                                                                            <div class="box 0s single">
-                                                                                <div class="boxroom phongtrong">
-                                                                                    <div class="boxImage">
-                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
-                                                                                    </div>
-                                                                                    <div class="boxname">Phòng 105</div>
-                                                                                </div>
-                                                                                <div class="btnChoose">Chọn</div>
-                                                                            </div>
-                                                                            <div class="box 0s double">
-                                                                                <div class="boxroom phongtrong">
-                                                                                    <div class="boxImage">
-                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
+                                                                                        <div><img style="width:100%;height:50px;" src="../image/IconRoom.png"></div>
                                                                                     </div>
                                                                                     <div class="boxname">Phòng 106</div>
                                                                                 </div>
-                                                                                <div class="btnChoose">Chọn</div>
+                                                                                <div class="btnChoose" data-id="106">Chọn</div>
                                                                             </div>
-                                                                            <div class="box 2s single">
-                                                                                <div class="boxroom phongtrong">
-                                                                                    <div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>
-                                                                                    <div class="boxImage">
-                                                                                        <div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>
-                                                                                    </div>
-                                                                                    <div class="boxname">Phòng 107</div>
-                                                                                </div>
-                                                                                <div class="btnChoose">Chọn</div>
-                                                                            </div>
-                                                                        </div>
+                                                                            
+																		</div>
                                                                     </div>
                                                                     <div style="border-radius:0;border:none;margin:0" class="panel panel-default">
                                                                         <div style="padding:5px 15px; " class="panel-heading">
@@ -466,65 +473,67 @@
                                             <div class="clearfix"></div>
 
                                         </div>
-                                        <div class="tab-pane" id="payment" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Tổng số tiền:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control" disabled></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Số tiền phải thanh toán:</label></div>
-                                                    <div style="float:left;width:80%"><input class="form-control" disabled></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
+                                        
+										<div class="tab-pane" id="payment" style="border:1px solid #ddd;border-top:none;padding:10px 0;">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Tổng số tiền:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" disabled value="3,000,000 NVĐ"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Số tiền phải thanh toán:</label></div>
+                                        <div style="float:left;width:80%"><input class="form-control" disabled value="3,000,000 VNĐ"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
 
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <div style="float:left;width:20%"><label>Khuyến mại:</label></div>
-                                                    <div style="float:left;width:80%">
-                                                        <select class="form-control">
-                                                            <option>Không khuyến mại</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="col-lg-6" style="padding-left:0;">
-                                                    <div class="form-group">
-                                                        <div style="float:left;width:20%">
-                                                            <label>
-                                                                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Đặt trước
-                                                            </label>
-                                                        </div>
-                                                        <div style="float:left;width:80%"><input class="form-control" id="dattrc" data-check="1"></div>
-                                                        <label>
-                                                            <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">Thanh toán toàn bộ
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6" style="padding-right:0">
-                                                    <div class="form-group">
-                                                        <div style="float:left;width:20%"><label>Hình thức thanh toán:</label></div>
-                                                        <div style="float:left;width:80%">
-                                                            <select class="form-control">
-                                                                <option>Trả tiền mặt</option>
-                                                                <option>Credit card</option>
-                                                                <option>Cheque</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <a class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#myModal">Hoàn thành</a>
-                                                <button class="btn btn-primary" style="float:right;margin-right:15px;" onclick="Next()">Quay lại</button>
-                                            </div>
-                                            <div class="clearfix"></div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div style="float:left;width:20%"><label>Khuyến mại:</label></div>
+                                        <div style="float:left;width:80%">
+                                            <select class="form-control">
+                                                <option>Không khuyến mại</option>
+                                                <option>...</option>
+                                            </select>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="col-lg-6" style="padding-left:0;">
+                                        <div class="form-group">
+                                            <div style="float:left;width:20%">
+                                                <label>
+                                                    <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Đặt trước
+                                                </label>
+                                            </div>
+                                            <div style="float:left;width:80%"><input class="form-control" id="inpDattruoc" data-check="1"></div>
+                                            <label>
+                                                <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">Thanh toán toàn bộ
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6" style="padding-right:0">
+                                        <div class="form-group">
+                                            <div style="float:left;width:20%"><label>Hình thức thanh toán:</label></div>
+                                            <div style="float:left;width:80%">
+                                                <select class="form-control">
+                                                    <option>Trả tiền mặt</option>
+                                                    <option>Credit card</option>
+                                                    <option>Cheque</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <a class="btn btn-primary" style="float:right" onclick="getValueForm();afterRegist();Close('frmDatphong'); Show('showInfo');">Hoàn thành</a>
+                                    <button class="btn btn-primary" style="float:right;margin-right:15px;" onclick="Pre1()">Quay lại</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        
+									</div>
                                 </div>
                             </div>
                         </div>
@@ -536,183 +545,284 @@
         </div>
         <!-- /#page-wrapper -->
         <!-- Model -->
-        
+        <!--  -->
+        <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 id="myModalLabel" class="modal-title">Kiểm tra lại thông tin đặt phòng</h4>
+                    </div>
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+                        <div style="float:left;width:100%;height:200px">
+                            <label>Thông tin khách hàng:</label>
+							<div class="show1"></div>
+                        </div>
+                        <div style="float:left;width:100%;height:200px">
+                            <label>Thông tin đặt phòng:</label>
+							<div class="show2"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<a href="QL_Letan.html" class="btn btn-primary">Đặt phòng</a>-->
+                        <button type="button" class="btn btn-default" onclick="Close('showInfo')">Close</button>
+                        <a class="btn btn-primary" style="float:right" data-toggle="modal" onclick="Close('showInfo'); Show('ShowMessage')">Đặt phòng</a>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <div class="modal fade" id="ShowMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding-top:0;border-top:none;">
+
+                        <div style="text-align:center;width:100%;">Thành công</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="QL_Letan.html"onclick="afterOK();Close('ShowMessage');" class="btn btn-primary">OK</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    
     </div>
+	<!-- /#wrapper -->
+    <!-- jQuery -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../js/morris-data.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+	<script src="../bower_components/ValidateClient/ValidateClient.js"></script>
     <script>
         $('#myTab a').click(function (e) {
             e.preventDefault()
             $(this).tab('show')
         })
-        function Close() {
-            $('#myModal').hide();
+        function Close(e) {
+            $('#'+e).modal('hide');
         }
-        $('#optionsRadios1').click(function () {
-            if ($('#dattrc').attr('data-check') == 0) {
-                $('#dattrc').attr('data-check', 1)
-                $('#dattrc').removeAttr('disabled')
+        function Show(e) {
+            $('#'+e).modal('show');
+        }
+        
+		$('#optionsRadios1').click(function () {
+            if ($('#inpDattruoc').attr('data-check') == 0) {
+                $('#inpDattruoc').attr('data-check', 1)
+                $('#inpDattruoc').removeAttr('disabled')
             }
         });
         $('#optionsRadios2').click(function () {
-            if ($('#dattrc').attr('data-check') == 1) {
-                $('#dattrc').attr('data-check', 0)
-                $('#dattrc').attr('disabled', 'disabled')
+            if ($('#inpDattruoc').attr('data-check') == 1) {
+                $('#inpDattruoc').attr('data-check', 0)
+                $('#inpDattruoc').attr('disabled', 'disabled')
             }
         });
-        function Next() {
+        
+		function Next() {
+			if(validate()){
             $('.nav-tabs a[href="#chooseroom"]').tab('show')
+			}
         }
         function Pre1() {
-            $('.nav-tabs a[href="#infomation"]').tab('show')
+            $('.nav-tabs a[href="#frminfomation"]').tab('show')
         }
         function Next1() {
             $('.nav-tabs a[href="#payment"]').tab('show')
         }
-        //$('#selectVipRoom').change(function () {
-        //    var html = "";
-        //    switch ($(this).val()) {
-        //        case '0':
-        //            html += '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 101</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 102</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 103</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 104</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 105</div>' +
-        //        '</div>' +
-        //       ' <div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //               '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 106</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //                '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 107</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>';
-        //            break;
-        //        case '1':
-        //            html += '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 102</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 103</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 105</div>' +
-        //        '</div>' +
-        //       ' <div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //    '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //            '<div class="boxImage">' +
-        //               '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 106</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>';
-        //            break;
-        //        case '2':
-        //            html += '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 104</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>';
-        //            break;
-        //        case '3':
-        //            html += '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 101</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>' +
-        //                '<div class="box">' +
-        //        '<div class="boxroom phongtrong">' +
-        //        '<div class="star"><i style="color:#f7fa04" class="fa fa-star"></i><i style="color:#f7fa04" class="fa fa-star"></i></div>' +
-        //            '<div class="boxImage">' +
-        //                '<div><img style="width:100%;height:50px;" src="file:///D:/QLKS/image/IconRoom.png"></div>' +
-        //            '</div>' +
-        //            '<div class="boxname">Phòng 107</div>' +
-        //        '</div>' +
-        //        '<div class="btnChoose">Chọn</div>' +
-        //    '</div>';
-        //            break;
-        //    }
-        //    $('#RoomInFirt').html(html);
-        //});
+        
+		var roomID,Hoten,CMND,Diachi,Dienthoai,Email,Nguoilon,Treem,Ngayden,Ngaydi,Tongtien,Dattruoc,Hinhthuctt;
+        function getRoomID(e) {
+            roomID = e;
+        }
+        function getValueForm() {
+            Hoten = $('#inpHoten').val();
+            CMND = $('#inpCMND').val();
+            Diachi = $('#inpDiachi').val();;
+            Dienthoai = $('#inpDienthoai').val();;
+            Email = $('#inpEmail').val();
+            Nguoilon = $('#inpNguoilon').val();;
+            Treem = $('#inpTreem').val();
+            Ngayden = $('#inpNgayden').val();
+            Ngaydi = $('#inpNgaydi').val();
+            Tongtien = 3000000;
+			if ($('#inpDattruoc').attr('data-check') == 1){
+				Dattruoc = $('#inpDattruoc').val();
+			}else{
+				Hinhthuctt='Thanh toán toàn bộ';
+				Dattruoc=0;
+			}
+        }
+		
+		function validate() {
+        return CheckValidate();
+    }
+	ValidateArray = new Array();
+		RegistValidateItem(
+        {
+            ControlID: "inpHoten",
+            ValidateActionType: ActionType.CheckRequire,
+            MsgError: "Bắt buộc phải điền"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpCMND",
+            ValidateActionType: ActionType.CheckRequire,
+            MsgError: "Bắt buộc phải điền"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpDienthoai",
+            ValidateActionType: ActionType.CheckRequire,
+            MsgError: "Bắt buộc phải điền"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpEmail",
+            ValidateActionType: ActionType.CheckRequire,
+            MsgError: "Bắt buộc phải điền"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpNgayden",
+            ValidateActionType: ActionType.CheckRequire,
+            MsgError: "Bắt buộc phải điền"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpNgaydi",
+            ValidateActionType: ActionType.CheckRequire,
+            MsgError: "Bắt buộc phải điền"
+        });
+		
+		RegistValidateItem(
+        {
+            ControlID: "inpCMND",
+            ValidateActionType: ActionType.IsNumeric,
+            MsgError: "Bắt buộc là số"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpDienthoai",
+            ValidateActionType: ActionType.IsNumeric,
+            MsgError: "Bắt buộc là số"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpEmail",
+            ValidateActionType: ActionType.IsEmail,
+            MsgError: "Bắt buộc có dạng abc@xyz.com"
+        });
+		RegistValidateItem(
+        {
+            ControlID: "inpNgayden",
+            ValidateActionType: ActionType.IsDateTime,
+			ExpectValue:"dd/mm/yyyy",
+            MsgError: "Không phù hợp"
+        });
+		RegistValidateItem(
+        {
+		
+            ControlID: "inpNgaydi",
+            ValidateActionType: ActionType.IsDateTime,
+			ExpectValue:"dd/mm/yyyy",
+            MsgError: "Không phù hợp"
+        });
+		
+	function afterRegist(){
+		var html='';
+		html+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+                                            '<div class="col-lg-3">Họ tên:</div>'+
+                                            '<div class="col-lg-9">'+Hoten+'</div>'+
+                                        '</div>';
+		html+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+                                            '<div class="col-lg-3">CMND:</div>'+
+                                            '<div class="col-lg-9">'+CMND+'</div>'+
+                                        '</div>';
+		html+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+                                            '<div class="col-lg-3">Địa chỉ:</div>'+
+                                            '<div class="col-lg-9">'+Diachi+'</div>'+
+                                        '</div>';		
+		html+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+                                            '<div class="col-lg-3">Điện thoại:</div>'+
+                                            '<div class="col-lg-9">'+Dienthoai+'</div>'+
+                                        '</div>';
+		html+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+                                            '<div class="col-lg-3">Email:</div>'+
+                                            '<div class="col-lg-9">'+Email+'</div>'+
+                                        '</div>';
+		var html2='';
+		var s='';
+		for (var i = 0; i < itemRoom.length; i++){
+			s+=itemRoom[i].toString()+'-';
+		}
+		html2+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+                                            '<div class="col-lg-3">Phòng đã đặt:</div>'+
+                                            '<div class="col-lg-9">'+s+'</div>'+
+                                        '</div>';
+		html2+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+			'<div class="col-lg-3">Ngày đến:</div>'+
+			'<div class="col-lg-9">'+Ngayden+'</div>'+
+		'</div>';
+		html2+='<div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">'+
+			'<div class="col-lg-3">Phòng đã đặt:</div>'+
+			'<div class="col-lg-9">'+Ngaydi+'</div>'+
+		'</div>';
+		$('.show1').html(html);
+		$('.show2').html(html2);
+		}
+		var sttPhongtrong=2;
+		var sttDadat=1;
+		function afterOK(){
+		var html=' <div class="tab-content">'+
+                            '<div class="tab-pane active" id="infomation2">'+
+                             '   <div class="col-lg-6">'+
+                              '      <label>Tên phòng:'+roomID+'</label>'+
+                               '     <br />'+
+                                    '<label>Loại phòng:</label>'+
+                                    '<br />'+
+                                    '<label>Mô tả ngắn:</label>'+
+                                '</div>'+
+                                '<div class="col-lg-6">'+
+                                '    <label>Giá tiền / 1 ngày đêm:500,000 VNĐ</label>'+
+                                '</div>'+
+                                '<div class="clearfix"></div>'+
+                            '</div>'+
+                            '<div class="tab-pane" id="status2">'+
+                             '   <label>Phòng đã đặt bởi: '+Hoten+'</label>'+
+                              '  <br />'+
+                               ' <label>Ngày nhận phòng: '+Ngayden+'</label>'+
+                                '<br />'+
+                                '<label>Ngày trả phòng: '+Ngaydi+'</label>'+
+                            '</div>'+
+                        '</div>';
+						$('#aaa').html(html);
+						sttPhongtrong-=1;
+						sttDadat+=1;
+		$('#room'+roomID+' .boxroom').removeClass('phongtrong');
+		$('#room'+roomID+' .boxroom').addClass('dadat');
+		$('#room'+roomID+' .btnView').attr('onclick','Show(\'myModal2\')');
+		var s1='<i class="fa fa-square" style="color:#d0d0d0"></i> Phòng trống('+sttPhongtrong+')';
+		var s2='<i class="fa fa-square" style="color:#C2EE6E"></i> Đã đặt('+sttPhongtrong+')';
+		$('#sttPhongtrong').html(s1);
+		$('#sttDadat').html(s2);
+		
+		};	
+
+		
         $('#selectVipRoom').change(function () {
             var TypeRoom = $('#selectTypeRoom').val();
             switch ($(this).val()) {
@@ -762,8 +872,11 @@
                     break;
             }
         });
-
+		
+		var itemRoom= new Array();
         $('.btnChoose').click(function (e) {
+			var id=$(this).attr('data-id');
+			itemRoom.push(id);
             if ($(this).html() == 'Bỏ chọn') {
                 $(this).html('Chọn');
                 $(this).css('background-color', '#fff')
@@ -773,19 +886,7 @@
             }
         })
     </script>
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="../bower_components/raphael/raphael-min.js"></script>
-    <script src="../js/morris-data.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="../bower_components/morrisjs/morris.min.js"></script>
-	<script src="../bower_components/ValidateClient/ValidateClient.js"></script>
+    
 
 </body>
 </html>
