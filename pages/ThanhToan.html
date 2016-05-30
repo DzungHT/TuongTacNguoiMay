@@ -83,7 +83,7 @@
                                     <a href="dangkidichvu.html">Đăng kí dịch vụ</a>
                                 </li>
                                 <li>
-                                    <a href="#">Đăng kí phòng</a>
+                                    <a href="QL_Letan.html">Đăng kí phòng</a>
                                 </li>
                                 <li>
                                     <a href="#">Gia hạn phòng</a>
@@ -104,7 +104,17 @@
                         </li>
                         <li>
                             <a href="quantri.html"><i class="fa fa-table fa-fw"></i> Quản trị<span class="fa arrow"></span></a>
-
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Quản lý người dùng</a>
+                                </li>
+                                <li>
+                                    <a href="phanconglamviec.html">Quản lý nhân sự</a>
+                                </li>
+                                <li>
+                                    <a href="#">Quản lý tài chính</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -119,10 +129,13 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a data-toggle="tab" href="#thanhtoan" aria-expanded="true">Thanh Toán</a>
+                                <a data-toggle="tab" href="#thanhtoan" aria-expanded="true"><b>THANH TOÁN</b></a>
                             </li>
-                            <li class="">
-                                <a data-toggle="tab" href="#danhsach" aria-expanded="false">Danh Sách Hóa Đơn</a>
+                            <li class="nav nav-tabs">
+                                <a data-toggle="tab" href="#danhsach" aria-expanded="false"><b>DANH SÁCH HÓA ĐƠN</b></a>
+                            </li>
+                            <li class="nav nav-tabs">
+                                <a data-toggle="tab" href="#trogiup" aria-expanded="false"><b>TRỢ GIÚP</b></a>
                             </li>
 
                         </ul>
@@ -131,11 +144,11 @@
                             <div id="thanhtoan" class="tab-pane fade active in" style="width:100%;height:100%">
                                 <div style="width:43%;float:left">
                                     <div style="width:300px; height:80px; display:inline-block">
-                                        <div style="float:left; width:60%; padding:40px;font-size:16px;color:#ff0000"><b>Mã Hóa Đơn:</b> </div>
-                                        <div style="float:left; width:25%; padding:40px;font-size:16px; padding-left:20px">HD88225 </div>
+                                        <div style="float:left; width:60%; padding:40px;font-size:16px;color:#337ab7"><b>Mã Hóa Đơn:</b> </div>
+                                        <div style="float:left; width:25%; padding:40px;font-size:16px; padding-left:20px;font-weight:bold">HD88225 </div>
                                     </div>
                                     <div style="width:500px; height:auto; display:inline-block; margin-bottom:20px">
-                                        <div style="float:left; width:150px; padding-left:40px; margin-top:5px; font-size:16px;color:#ff0000"><b>Mã Số Phòng:</b> </div>
+                                        <div style="float:left; width:150px; padding-left:40px; margin-top:5px; font-size:16px;color:#337ab7"><b>Mã Số Phòng:</b> </div>
                                         <div class="form-group input-group" style="padding-left:50px; width:250px;display:inline">
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Timphong" style="float:left;margin-left:50px">
@@ -161,18 +174,24 @@
                                                                             <div class="panel-body">
                                                                                 <div style="float:left;width:20%">
                                                                                     <div style="margin-top:10px">P101</div>
-                                                                                    <div style="margin-top:10px">P102</div>
-                                                                                    <div style="margin-top:10px">P103</div>
-                                                                                    <div style="margin-top:10px">P104</div>
-                                                                                    <div style="margin-top:10px">P105</div>
+                                                                                    <div style="margin-top:13px">P102</div>
+                                                                                    <div style="margin-top:13px">P103</div>
+                                                                                    <div style="margin-top:13px">P104</div>
+                                                                                    <div style="margin-top:13px">P105</div>
                                                                                 </div>
-                                                                                <div style="float:left">
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-
+                                                                                <div style="float:left; width:18%">
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()"  />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()"  />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                </div>
+                                                                                <div style="float:left; width:18%">
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
                                                                                 </div>
 
                                                                             </div>
@@ -190,18 +209,24 @@
                                                                             <div class="panel-body">
                                                                                 <div style="float:left;width:20%">
                                                                                     <div style="margin-top:10px">P201</div>
-                                                                                    <div style="margin-top:10px">P202</div>
-                                                                                    <div style="margin-top:10px">P203</div>
-                                                                                    <div style="margin-top:10px">P204</div>
-                                                                                    <div style="margin-top:10px">P205</div>
+                                                                                    <div style="margin-top:13px">P202</div>
+                                                                                    <div style="margin-top:13px">P203</div>
+                                                                                    <div style="margin-top:13px">P204</div>
+                                                                                    <div style="margin-top:13px">P205</div>
                                                                                 </div>
-                                                                                <div style="float:left">
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-
+                                                                                <div style="float:left; width:18%">
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                </div>
+                                                                                <div style="float:left; width:18%">
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
                                                                                 </div>
 
                                                                             </div>
@@ -219,18 +244,24 @@
                                                                             <div class="panel-body">
                                                                                 <div style="float:left;width:20%">
                                                                                     <div style="margin-top:10px">P301</div>
-                                                                                    <div style="margin-top:10px">P302</div>
-                                                                                    <div style="margin-top:10px">P303</div>
-                                                                                    <div style="margin-top:10px">P304</div>
-                                                                                    <div style="margin-top:10px">P305</div>
+                                                                                    <div style="margin-top:13px">P302</div>
+                                                                                    <div style="margin-top:13px">P303</div>
+                                                                                    <div style="margin-top:13px">P304</div>
+                                                                                    <div style="margin-top:13px">P305</div>
                                                                                 </div>
-                                                                                <div style="float:left">
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-                                                                                    <div class="checkbox"> <label> <input type="checkbox"></label> </div>
-
+                                                                                <div style="float:left; width:18%">
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                    <input type="button" class="btn btn-primary" value="Chọn" onclick="messenger1()" />
+                                                                                </div>
+                                                                                <div style="float:left; width:18%">
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
+                                                                                    <input type="button" class="btn btn-danger" value="Hủy" onclick="messenger3()" />
                                                                                 </div>
 
                                                                             </div>
@@ -239,18 +270,17 @@
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Xác nhận</button>
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
-                                    <div style="width:500px">
-                                        <div style="float:left; width:200px; padding-left:40px; margin-top:5px; font-size:16px; color:#ff0000"><b>Ngày Thanh Toán:</b> </div>
-                                        <input style="width:200px" type="text" class="form-control" id="datetimepicker1" placeholder="DD/MM/YYYY HH:mm">
-                                        
+                                    <div style="width:500px;margin-bottom:20px;height:40px">
+                                        <div style="float:left; width:200px; padding-left:40px; margin-top:5px; font-size:16px;color:#337ab7"><b>Ngày Thanh Toán:</b> </div>
+                                        <div style="float:left; width:200px; margin-top:5px;font-size:16px;font-weight:bold" id="clock"></div>
+
                                     </div>
                                     <div class="panel panel-primary" style="margin:30px">
                                         <div class="panel-heading" style="font-size:16px">
@@ -265,14 +295,14 @@
                                             <div style="float:left; width:60%; font-size:16px; padding-left:20px">850.000 VNĐ </div>
                                         </div>
                                     </div>
-                                    <div class="panel panel-green" style="margin:30px">
+                                    <div class="panel panel-primary" style="margin:30px">
                                         <div class="panel-heading" style="font-size:16px">
                                             CHUYỂN ĐỔI TIỀN TỆ
                                         </div>
-                                        <form class="panel-body" id="chuyendoi" onsubmit="return validateForm()">
+                                        <form class="panel-body" id="chuyendoi" >
                                             <div style="float:left; width:100%">
                                                 <div style="display:inline;">Nhập vào số lượng</div>
-                                                <input class="form-control" id="soluong">
+                                                <input class="form-control" id="soluong" >
                                             </div>
                                             <div style="float:left; width:35%;margin-top:20px; margin-bottom:20px">
                                                 <div style="display:inline">Đơn vị gốc</div>
@@ -292,41 +322,28 @@
                                                     <option>VNĐ</option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-success" style="float:left;margin-top:40px">Chuyển đổi</button>
+                                            <button type="button" class="btn btn-primary" style="float:left;margin-top:40px" onclick="return validateForm()">Chuyển đổi</button>
                                             <div style="margin-top:20px;width:50px">Kết quả</div>
                                             <input class="form-control" disabled="" />
                                         </form>
                                     </div>
-                                    <div class="panel panel-yellow" style="margin:25px">
+                                    <div class="panel panel-primary" style="margin:25px">
                                         <div class="panel-heading" style="font-size:16px">
                                             THANH TOÁN BẰNG THẺ
                                         </div>
-                                        <div class="panel-body">
+                                        <form class="panel-body" id="formStk">
                                             <div style="display:inline">
                                                 <div>Nhập Số Tài Khoản</div>
-                                                <input style="margin-bottom:20px" class="form-control" />
+                                                <input style="margin-bottom:20px" class="form-control" id="stk"/>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" style="width:100%">
+                                                <button type="button" class="btn btn-primary" onclick="KtSTK()" style="width:100%">
                                                     Kiểm Tra STK
                                                 </button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content" style="width:400px; height:150px">
-                                                            
-                                                            <div class="modal-body" >
-                                                                Số tài khoản không đúng hoặc số tiền trong tài khoản không đủ để thanh toán
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Nhập lại STK</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
 
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1" style="margin-left:25px; width:180px;height:50px;font-size:20px">
@@ -340,7 +357,7 @@
                                                     In Hóa Đơn Thành Công
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                                                     
                                                 </div>
                                             </div>
@@ -358,7 +375,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
-                                                    <button type="button" class="btn btn-primary">Xác nhận</button>
+                                                    <button type="button" class="btn btn-primary" onclick="messenger2()" data-dismiss="modal">Xác nhận</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -463,23 +480,26 @@
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
 
-                                                                    <div class="modal-body">
+                                                                    <form id="dichvu" class="modal-body">
                                                                         <div class="form-group">
                                                                             <label>Ngày Sử dụng</label>
-                                                                            <input class="form-control">
+                                                                            <input style="width:200px" type="text" class="form-control" id="datetimepicker2" placeholder="DD/MM/YYYY HH:mm">
                                                                         </div>
-                                                                        <div class="form-group">
-                                                                            <label>MÃ DV</label>
-                                                                            <input class="form-control">
-                                                                        </div>
+                                                                        <label style="width:500px">Dịch vụ</label>
+                                                                        <select name="TenDanhSach" class="select" style="border-radius:4px; height:35px;width:570px; margin-bottom:15px">
+                                                                            <option>Cơm Trưa - DV 001</option>
+                                                                            <option>Matxa - DV 002</option>
+                                                                            <option>Bia lon - DV003</option>
+                                                                            <option>Xông hơi - DV004</option>
+                                                                        </select>
                                                                         <div class="form-group">
                                                                             <label>Số lượng</label>
-                                                                            <input class="form-control">
+                                                                            <input id="soluong" class="form-control">
                                                                         </div>
-                                                                    </div>
+                                                                    </form>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
-                                                                        <button type="button" class="btn btn-primary">Lưu</button>
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                                                                        <button type="button" class="btn btn-primary" onclick="validateForm1()">Lưu</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -617,6 +637,47 @@
                                     <!-- /.panel-body -->
                                 </div>
                             </div>
+                            <div id="trogiup" class="tab-pane fade">
+                                <div style="margin:50px">
+                                    <div class="panel panel-heading"  style="font-size:25px;background-color:#ff6a00"><b>HƯỚNG DẪN THANH TOÁN</b></div>
+                                    <div>
+                                        <div style="font-size:20px">
+                                            <div style="margin:10px">
+                                                <b>BƯỚC 1: Chọn phòng cần thanh toán:</b>
+                                                <br /> - Bạn có thể chọn 1 hoặc nhiều phòng để thanh toán.
+                                                <br /> - Thông tin khách hàng, chi tiết tiền phòng, chi tiết tiền dịch vụ, ngày thanh toán
+                                                <br /> hệ thống sẽ tự sinh tương ứng với phòng mà bạn chọn.
+                                            </div>
+                                            <div style="margin:10px">
+                                                <br /><b>BƯỚC 2: Kiểm tra các dịch vụ đã sử dụng </b>
+                                                <br /> - Thông báo với khách hàng về các dịch vụ đã sử dụng.
+                                                <br /> - Nếu đã đầy đủ thì chuyển xuống các bước tiếp theo.
+                                                <br /> - Nếu có dịch vụ phát sinh thì ấn nút "chỉnh sửa" để bổ sung.
+                                            </div>
+                                            <div style="margin:10px">
+                                                <br /><b>BƯỚC 3: Chuyển đổi tiền tệ </b>
+                                                <br /> - Nếu khách hàng thanh toán bằng ngoại tệ, chức năng này giúp bạn chuyển đổi
+                                                <br /> - Bạn chọn đơn vị gốc và đơn vị chuyển. VD: Bạn cần chuyển từ USD sang VNĐ thì đơn vị
+                                                <br /> gốc là USD và đơn vị chuyển là VNĐ.
+                                                <br /> - Sau đó bạn nhập số tiền cần chuyển vào thanh số lượng (phải ở dạng số) rồi bấm nút "chuyển đổi"
+                                                <br /> - Kết quả sẽ được hiển thị bên dưới ô kết quả.
+                                            </div>
+                                                <div style="margin:10px">
+                                                    <br /><b>BƯỚC 4: Thanh toán bằng thẻ </b>
+                                                   <br /> - Nếu khách hàng muốn thanh toán bằng thể thì bạn sẽ sử dụng chức năng này.
+                                                    <br /> - Nhập số tài khoản của khách hàng vào ô nhập liệu
+                                                    <br /> - Nếu số tài khoản hợp lệ và còn đủ tiền thì thanh toán thành công. Ngược lại thì bạn có thể nhập lại số tài khoản
+                                                    <br />hoặc yêu cầu khách hàng thanh toán bằng tiền mặt.
+                                                </div>
+                                                <div style="margin:10px">
+                                                    <br /><b>BƯỚC 5: In hóa đơn </b>
+                                                    <br /> - Sau khi thanh toán thành công, nhận được tiền bạn bấm nút "in hóa đơn" để giao cho khách hàng
+                                                    <br /> - Nếu không thể thanh toán thì bạn bấm nút "hủy thanh toán".
+                                                </div>
+                                            </div>
+                                    </div> 
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -644,8 +705,51 @@
     <script src="../dist/js/bootstrap-datetimepicker.js"></script>
 
     <script>
+        function refrClock() {
+
+            var d = new Date();
+
+            var s = d.getSeconds();
+
+            var m = d.getMinutes();
+
+            var h = d.getHours();
+
+            var day = d.getDay();
+
+            var date = d.getDate();
+
+            var month = d.getMonth();
+
+            var year = d.getFullYear();
+
+            var days = new Array("Chủ nhật", "Thứ hai", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7");
+
+            var months = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"); var am_pm;
+
+            if (s < 10) { s = "0" + s }
+
+            if (m < 10) { m = "0" + m }
+
+            if (h > 12)
+
+            { h -= 12; AM_PM = "PM" }
+
+            else { AM_PM = "AM" }
+
+            if (h < 10) { h = "0" + h }
+
+            document.getElementById("clock").innerHTML = days[day] + " Ngày " + date + "/" + months[month] + "/" + year + " [" + h + ":" + m + ":" + s + "] " + AM_PM; setTimeout("refrClock()", 1000);
+        } refrClock();
         $(function () {
-            $('#datetimepicker1').datetimepicker({
+            $('#datetimepicker').datetimepicker({
+                format: 'DD/MM/YYYY HH:mm',
+                useCurrent: true,
+                defaultDate: moment()
+            });
+        });
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
                 format: 'DD/MM/YYYY HH:mm',
                 useCurrent: true,
                 defaultDate: moment()
@@ -656,13 +760,63 @@
         // JavaScript Document
         function validateForm() {
         //Họ phải được điền
-        var ho = document.forms["chuyendoi"]["soluong"].value;
-        if (ho == "") {
-            alert("bạn chưa nhập STK thì chuyển thế lồn nào được");
+        var soluong = document.forms["chuyendoi"]["soluong"].value;
+        if (soluong == "") {
+            alert("bạn chưa nhập số tiền");
             return false;
             }
-        
+        var ktSoluong = isNaN(soluong);
+        if (ktSoluong == true) {
+            alert("số lượng phải ở dạng số");
+            return false;
+            }
         }
+        
+        function messenger1() {
+            alert("Chọn phòng thành công");
+
+        }
+        function messenger2() {
+            alert("Hủy thanh toán thành công");
+        }
+        function messenger3() {
+            alert("bạn đã hủy thanh toán phòng");
+        }
+        function KtSTK() {
+            var stk = document.forms["formStk"]["stk"].value;
+            
+            if (stk == "") {
+                alert("Bạn chưa nhập số tài khoản");
+            }
+            else {
+                if (stk == "123") {
+                    alert("Thanh toán bằng thẻ thành công");
+                }
+                else {
+                    alert("Số tài khoản không chính xác hoặc số tiền trong tài khoản không đủ để thanh toán. Xin quý khách vui lòng nhập lại!");
+
+                }
+
+            }
+            
+        }
+        function validateForm1() {
+            //Họ phải được điền
+            var soluong = document.forms["dichvu"]["soluong"].value;
+            if (soluong == "") {
+                alert("bạn chưa nhập số lượng");
+                return false;
+            }
+            var ktSoluong = isNaN(soluong);
+            if (ktSoluong == true) {
+                alert("số lượng phải ở dạng số");
+                return false;
+            }
+            else {
+                alert("Lưu lại thành công");
+            }
+        }
+        
     </script>
 
 </body>
