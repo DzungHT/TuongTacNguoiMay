@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Đăng kí dịch vụ - QL Khách sạn</title>
+    <title>Đăng ký dịch vụ - QL Khách sạn</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +35,14 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!--Datetimepicker-->
+    <script src="../dist/js/moment.js"></script>
+    <script src="../dist/js/bootstrap-datetimepicker.js"></script>
+
+    <!-- Full Calender-->
+    <!--<script src="../bower_components/fullcalendar-2.7.2/fullcalendar.min.js"></script>-->
+    <script src="../dist/js/fullcalendar.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,6 +78,7 @@
 
             .banan:hover {
                 background-color: #f5f5f5;
+                color:#000;
             }
 
         .banan-content {
@@ -97,7 +106,6 @@
 
         .panel-heading {
             font-size: 18px;
-            text-transform: uppercase;
         }
 
         #timphong .radio {
@@ -107,6 +115,10 @@
             #timphong .radio:hover {
                 background-color: #f2dede;
             }
+        .banan-danger{
+            background-color:#d9534f;
+            color:#fff;
+        }
     </style>
 </head>
 
@@ -118,12 +130,12 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Menu</span>
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="letan.html">QUẢN LÝ KHÁCH SẠN</a>
+                <a class="navbar-brand" href="#" style="font-size:20px;color:#ff0000">QUẢN LÝ KHÁCH SẠN</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -131,11 +143,11 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i>Xin chào, Hoàng Trí Dũng!</i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin tài khoản</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
@@ -154,31 +166,36 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+
                         <li>
                             <a href="letan.html"><i class="fa fa-dashboard fa-fw"></i> Lễ tân<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="dangkidichvu.html" style="outline:none">Đăng kí dịch vụ</a>
+                                    <a href="dangkidichvu.html">Đăng ký dịch vụ</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">Đăng kí phòng</a>
+                                    <a href="QL_Letan.html">Quản lý phòng</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">Gia hạn phòng</a>
+                                    <a href="QL_Datphong.html">Đăng ký phòng</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">Trả phòng</a>
+                                    <a href="#">Gia hạn phòng</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">Tra cứu thông tin khách hàng</a>
+                                    <a href="#">Trả phòng</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">Xem thông tin phòng</a>
+                                    <a href="#">Tra cứu thông tin khách hàng</a>
+                                </li>
+
+                                <li>
+                                    <a href="ThanhToan.html">Thanh Toán</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="quantri.html"><i class="fa fa-table fa-fw"></i> Quản trị<span class="fa arrow"></span></a>
+                            <a href="quantri.html"><i class="fa fa-table fa-fw"></i> Quản trị<span class="fa arrow"></a>
 
                         </li>
                     </ul>
@@ -208,12 +225,12 @@
                                 1. THÔNG TIN KHÁCH HÀNG
                             </div>
                             <div class="panel-body">
-                                <form class="form-horizontal">
+                                <form id="form-ttkh" class="form-horizontal">
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input id="inp-trongks" type="checkbox" onchange="a(this)"> Khách đang ở trong khách sạn
+                                                    <input id="inp-trongks" type="checkbox" onchange="a(this)" checked> Khách đang ở trong khách sạn
                                                     <script>
                                                         function a(element) {
                                                             if (element.checked == true) {
@@ -236,9 +253,9 @@
                                         <label for="hoten" class="col-sm-2 control-label">Phòng:</label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
-                                                <input id="inp-phong" type="text" class="form-control" readonly>
+                                                <input id="inp-phong" type="text" class="form-control" readonly value="P101">
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default disabled" id="btn-timphong" title="">
+                                                    <button type="button" class="btn btn-default" id="btn-timphong" title="">
                                                         <i class="fa fa-search"></i>
                                                     </button>
                                                 </span>
@@ -249,20 +266,32 @@
                                     <div class="form-group">
                                         <label for="hoten" class="col-sm-2 control-label">Họ tên:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="Hoten" placeholder="Họ tên" onchange="$('#ct-hoten').html(this.value)">
+                                            <input value="Hoàng Trí Dũng" type="text" class="form-control" name="Hoten" placeholder="Họ tên" onchange="$('#ct-hoten').html(this.value)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="diachi" class="col-sm-2 control-label">Địa chỉ:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="Diachi" placeholder="Địa chỉ" onchange="$('#ct-diachi').html(this.value)">
+                                            <input value="Nguyên Xá - Minh Khai - Bắc Từ Liêm - Hà Nội" type="text" class="form-control" name="Diachi" placeholder="Địa chỉ" onchange="$('#ct-diachi').html(this.value)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="sdt" class="col-sm-2 control-label">SĐT:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="SDT" placeholder="Số điện thoại" onchange="$('#ct-sdt').html(this.value)">
+                                            <input value="0988594448" type="text" class="form-control" name="SDT" placeholder="Số điện thoại" onchange="$('#ct-sdt').html(this.value)">
                                         </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <a class="btn btn-default" onclick="resetform()">Nhập lại</a>
+                                        <script>
+                                            function resetform() {
+                                                $('#form-ttkh input').val('');
+                                                $('#form-ttkh input[type="checkbox"]')[0].checked = false;
+                                                if (!$('#btn-timphong').hasClass('disabled')) {
+                                                    $('#btn-timphong').addClass('disabled');
+                                                }
+                                            }
+                                        </script>
                                     </div>
                                 </form>
 
@@ -346,11 +375,32 @@
                                 2. CHỌN DỊCH VỤ
                             </div>
                             <div class="panel-body">
+                                <div class="row" style="margin-bottom:15px;">
+                                    <div class="col-lg-12">
+                                        <div class="col-lg-3">
+                                            <div style="width:30px;height:30px;border:1px solid #ddd" class="bg-success pull-left"></div>
+                                            <div class="pull-left" style="padding: 5px 5px 5px 7px;">Đã chọn</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div style="width:30px;height:30px;border:1px solid #ddd;background-color:#fff;" class="pull-left"></div>
+                                            <div class="pull-left" style="padding: 5px 5px 5px 7px;">Có thể chọn</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div style="width:30px;height:30px;border:1px solid #ddd;background-color:#d9534f;" class="pull-left"></div>
+                                            <div class="pull-left" style="padding: 5px 5px 5px 7px;">Có thể chọn nhưng đã kín lịch trong 7 ngày tới</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!--Dịch vụ nhà ăn-->
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#dichvunhaan"> Dịch vụ nhà ăn</a>
+                                        <div class="panel-title" style="height:23px;">
+                                            <a class="pull-left" data-toggle="collapse" data-parent="#accordion" href="#dichvunhaan"> Dịch vụ đặt bàn ăn (Đặt cọc 200k /1 bàn/ 1 giờ)</a>
+                                            <a class="pull-right" href="javascript:;" data-toggle="tooltip" data-placement="top" title="Chọn lại các dịch vụ vừa chọn"><i class="fa fa-refresh"></i> Chọn lại</a>
                                         </div>
                                     </div>
                                     <div id="dichvunhaan" class="panel-collapse collapse in">
@@ -359,13 +409,12 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="col-lg-12">
-                                                        <div id="calendar"></div>
                                                         <!--Dãy bàn 1 -->
                                                         <div class="row">
                                                             <!--Bàn 1-->
-                                                            <div class="banan">
+                                                            <div class="banan bg-success">
                                                                 <div class="banan-content" data-toggle="modal" data-target="#banan-status-1">
-                                                                    <input type="checkbox">
+                                                                    <input type="checkbox" checked>
                                                                     <label>
                                                                         Bàn 1
                                                                     </label>
@@ -377,7 +426,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 1</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 1</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-1"></div>
@@ -390,7 +439,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                
+
                                                             </div>
 
                                                             <!--Bàn 2-->
@@ -408,7 +457,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 2</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 2</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-2"></div>
@@ -439,7 +488,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 3</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 3</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-3"></div>
@@ -470,7 +519,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 4</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 4</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-4"></div>
@@ -501,7 +550,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 5</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 5</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-5"></div>
@@ -521,9 +570,9 @@
                                                         <!-- Dãy bàn 2 -->
                                                         <div class="row">
                                                             <!--Bàn 6-->
-                                                            <div class="banan">
+                                                            <div class="banan bg-success">
                                                                 <div class="banan-content" data-toggle="modal" data-target="#banan-status-6">
-                                                                    <input type="checkbox">
+                                                                    <input type="checkbox" checked>
                                                                     <label>
                                                                         Bàn 6
                                                                     </label>
@@ -535,7 +584,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 6</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 6</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-6"></div>
@@ -566,7 +615,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 7</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 7</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-7"></div>
@@ -583,7 +632,7 @@
                                                             </div>
 
                                                             <!--Bàn 8-->
-                                                            <div class="banan">
+                                                            <div class="banan banan-danger">
                                                                 <div class="banan-content" data-toggle="modal" data-target="#banan-status-8">
                                                                     <input type="checkbox">
                                                                     <label>
@@ -597,7 +646,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 8</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 8</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-8"></div>
@@ -628,7 +677,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 9</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 9</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-9"></div>
@@ -659,7 +708,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 10</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 10</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-10"></div>
@@ -695,7 +744,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 11</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 11</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-11"></div>
@@ -730,7 +779,7 @@
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                                <h4 class="modal-title text-center text-danger">Đăng kí bàn ăn 12</h4>
+                                                                                <h4 class="modal-title text-center text-danger">Đăng ký bàn ăn 12</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div id="calendar-12"></div>
@@ -754,7 +803,7 @@
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
-                                                                        <h4 class="modal-title text-center text-danger">Thông tin đăng kí</h4>
+                                                                        <h4 class="modal-title text-center text-danger">Thông tin đăng ký</h4>
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <form class="form-horizontal">
@@ -768,9 +817,9 @@
                                                                                 <label for="hoten" class="col-sm-3 control-label">Từ ngày:</label>
                                                                                 <div class="col-sm-9">
                                                                                     <div id="input-daterange" class="input-daterange input-group">
-                                                                                        <input type="text" name="start" class="input-sm form-control" id="inpFromDate" placeholder="M/D/YYYY">
+                                                                                        <input type="text" name="start" class="input-sm form-control" id="inpFromDate" placeholder="MM/DD/YYYY">
                                                                                         <span class="input-group-addon">đến ngày</span>
-                                                                                        <input type="text" name="end" class="input-sm form-control" id="inpToDate" placeholder="M/D/YYYY">
+                                                                                        <input type="text" name="end" class="input-sm form-control" id="inpToDate" placeholder="MM/DD/YYYY">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -862,7 +911,7 @@
                                                                         </form>
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button id="btn-setup-del"type="button" class="btn btn-danger" data-dismiss="modal">Xóa</button>
+                                                                        <button id="btn-setup-del" type="button" class="btn btn-danger" data-dismiss="modal">Xóa</button>
                                                                         <button id="btn-setup" type="button" class="btn btn-primary" data-dismiss="modal">Xác nhận</button>
                                                                     </div>
                                                                 </div>
@@ -878,98 +927,317 @@
                                 <!--Dịch vụ Massage-->
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <input type="checkbox" /> <a data-toggle="collapse" data-parent="#accordion" href="#massage">
-                                                Dịch vụ Massage
-                                            </a>
+                                        <div class="panel-title" style="height:23px;">
+                                            <a class="pull-left" data-toggle="collapse" data-parent="#accordion" href="#massage"> Dịch vụ Massage (Đặt cọc 500k/ 1 phòng/ 1 giờ)</a>
+                                            <a class="pull-right" href="javascript:;" data-toggle="tooltip" data-placement="top" title="Chọn lại các dịch vụ vừa chọn"><i class="fa fa-refresh"></i> Chọn lại</a>
                                         </div>
                                     </div>
-                                    <div id="massage" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                    </div>
-                                </div>
+                                    <div id="massage" class="panel-collapse collapse in">
+                                        <style>
+                                            .massage-room {
+                                                width: 25%;
+                                                margin: 5px;
+                                                border: 1px solid #d2d2d2;
+                                                display: table-cell;
+                                                height: 100px;
+                                                vertical-align: middle;
+                                                text-align: center;
+                                                font-size: 18px;
+                                                cursor: pointer;
+                                                position: relative;
+                                            }
 
-                                <!--Dịch vụ bể bơi-->
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <input type="checkbox" /> <a data-toggle="collapse" data-parent="#accordion" href="#beboi">
-                                                Dịch vụ bể bơi
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div id="beboi" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                    </div>
-                                </div>
+                                                .massage-room:hover {
+                                                    background-color: #f2f2f2 !important;
+                                                }
 
-                                <!--Dịch vụ xông hơi-->
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <input type="checkbox" /> <a data-toggle="collapse" data-parent="#accordion" href="#tamhoi">
-                                                Dịch vụ tắm hơi
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div id="tamhoi" class="panel-collapse collapse">
+                                            .massage-room-tilte {
+                                                font-weight: bold;
+                                                font-size: 24px;
+                                            }
+                                        </style>
                                         <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div style="display:table;width:100%">
+                                                        <div style="display:table-row;width:100%;">
+                                                            <div class="massage-room bg-success" data-toggle="modal" data-target="#massage-room-info">
+                                                                <input checked type="checkbox" style="position:absolute;top:1px;left:5px;" />
+                                                                <div class="massage-room-tilte">Phòng 1</div>
+                                                            </div>
+                                                            <div class="massage-room" data-toggle="modal" data-target="#massage-room-info">
+                                                                <input type="checkbox" style="position:absolute;top:1px;left:5px;" />
+                                                                <div class="massage-room-tilte">Phòng 2</div>
+                                                            </div>
+                                                            <div class="massage-room" data-toggle="modal" data-target="#massage-room-info">
+                                                                <input type="checkbox" style="position:absolute;top:1px;left:5px;" />
+                                                                <div class="massage-room-tilte">Phòng 3</div>
+                                                            </div>
+                                                            <div class="massage-room" data-toggle="modal" data-target="#massage-room-info">
+                                                                <input type="checkbox" style="position:absolute;top:1px;left:5px;" />
+                                                                <div class="massage-room-tilte">Phòng 4</div>
+                                                            </div>
+
+                                                            <!--Modal-->
+                                                            <div class="modal fade" id="massage-room-info" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                <div class="modal-dialog modal-lg">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                            <h4 class="modal-title text-center text-danger">Đăng ký phòng Massage - phòng 1</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div id="calendar"></div>
+                                                                        </div>
+                                                                        <div class="modal-footer text-center">
+                                                                            <button data-target="1" type="button" class="tv btn btn-danger" data-dismiss="modal">Trở về</button>
+                                                                            <button data-target="1" type="button" class="btn btn-primary xn" data-dismiss="modal">Xác nhận</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal fade" id="massage-room-setup" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#f00" aria-hidden="true">&times;</span></button>
+                                                                            <h4 class="modal-title text-center text-danger">Thông tin đăng ký</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form class="form-horizontal">
+                                                                                <div class="form-group">
+                                                                                    <label for="hoten" class="col-sm-3 control-label">Từ ngày:</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <div id="input-daterange" class="input-daterange input-group">
+                                                                                            <input type="text" name="start" class="input-sm form-control" id="massage-room-inpFromDate" placeholder="MM/DD/YYYY">
+                                                                                            <span class="input-group-addon">đến ngày</span>
+                                                                                            <input type="text" name="end" class="input-sm form-control" id="massage-room-inpToDate" placeholder="MM/DD/YYYY">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Từ giờ:</label>
+                                                                                    <div style="padding-right:0;" class="col-md-3">
+                                                                                        <select class="form-control" id="massage-room-txtFromHour">
+                                                                                            <option value="06:00">06:00</option>
+                                                                                            <option value="06:30">06:30</option>
+                                                                                            <option value="07:00">07:00</option>
+                                                                                            <option value="07:30">07:30</option>
+                                                                                            <option value="08:00">08:00</option>
+                                                                                            <option value="08:30">08:30</option>
+                                                                                            <option value="09:00">09:00</option>
+                                                                                            <option value="09:30">09:30</option>
+                                                                                            <option value="10:00">10:00</option>
+                                                                                            <option value="10:30">10:30</option>
+                                                                                            <option value="11:00">11:00</option>
+                                                                                            <option value="11:30">11:30</option>
+                                                                                            <option value="12:00">12:00</option>
+                                                                                            <option value="12:30">12:30</option>
+                                                                                            <option value="13:00">13:00</option>
+                                                                                            <option value="13:30">13:30</option>
+                                                                                            <option value="14:00">14:00</option>
+                                                                                            <option value="14:30">14:30</option>
+                                                                                            <option value="15:00">15:00</option>
+                                                                                            <option value="15:30">15:30</option>
+                                                                                            <option value="16:00">16:00</option>
+                                                                                            <option value="16:30">16:30</option>
+                                                                                            <option value="17:00">17:00</option>
+                                                                                            <option value="17:30">17:30</option>
+                                                                                            <option value="18:00">18:00</option>
+                                                                                            <option value="18:30">18:30</option>
+                                                                                            <option value="19:00">19:00</option>
+                                                                                            <option value="19:30">19:30</option>
+                                                                                            <option value="20:00">20:00</option>
+                                                                                            <option value="20:30">20:30</option>
+                                                                                            <option value="21:00">21:00</option>
+                                                                                            <option value="21:30">21:30</option>
+                                                                                            <option value="22:00">22:00</option>
+                                                                                            <option value="22:30">22:30</option>
+                                                                                            <option value="23:00">23:00</option>
+                                                                                            <option value="23:30">23:30</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <label class="col-md-3 control-label">Đến giờ:</label>
+                                                                                    <div style="padding-left:0;" class="col-md-3">
+                                                                                        <select class="form-control" id="massage-room-txtToHour">
+                                                                                            <option value="06:00">06:00</option>
+                                                                                            <option value="06:30">06:30</option>
+                                                                                            <option value="07:00">07:00</option>
+                                                                                            <option value="07:30">07:30</option>
+                                                                                            <option value="08:00">08:00</option>
+                                                                                            <option value="08:30">08:30</option>
+                                                                                            <option value="09:00">09:00</option>
+                                                                                            <option value="09:30">09:30</option>
+                                                                                            <option value="10:00">10:00</option>
+                                                                                            <option value="10:30">10:30</option>
+                                                                                            <option value="11:00">11:00</option>
+                                                                                            <option value="11:30">11:30</option>
+                                                                                            <option value="12:00">12:00</option>
+                                                                                            <option value="12:30">12:30</option>
+                                                                                            <option value="13:00">13:00</option>
+                                                                                            <option value="13:30">13:30</option>
+                                                                                            <option value="14:00">14:00</option>
+                                                                                            <option value="14:30">14:30</option>
+                                                                                            <option value="15:00">15:00</option>
+                                                                                            <option value="15:30">15:30</option>
+                                                                                            <option value="16:00">16:00</option>
+                                                                                            <option value="16:30">16:30</option>
+                                                                                            <option value="17:00">17:00</option>
+                                                                                            <option value="17:30">17:30</option>
+                                                                                            <option value="18:00">18:00</option>
+                                                                                            <option value="18:30">18:30</option>
+                                                                                            <option value="19:00">19:00</option>
+                                                                                            <option value="19:30">19:30</option>
+                                                                                            <option value="20:00">20:00</option>
+                                                                                            <option value="20:30">20:30</option>
+                                                                                            <option value="21:00">21:00</option>
+                                                                                            <option value="21:30">21:30</option>
+                                                                                            <option value="22:00">22:00</option>
+                                                                                            <option value="22:30">22:30</option>
+                                                                                            <option value="23:00">23:00</option>
+                                                                                            <option value="23:30">23:30</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button id="btn-massage-room-setup-del" type="button" class="btn btn-danger" data-dismiss="modal">Xóa</button>
+                                                                            <button id="btn-massage-room-setup" type="button" class="btn btn-primary" data-dismiss="modal">Xác nhận</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+                                                    </div>
+
+                                                    <script>
+                                                        var eventSelected;
+                                                        var startHour, endHour;
+                                                        $('#massage-room-info').on('shown.bs.modal', function (e) {
+                                                            $('#calendar').fullCalendar({
+                                                                header: {
+                                                                    left: 'prev,next today',
+                                                                    center: 'title',
+                                                                    right: 'agendaWeek'
+                                                                },
+                                                                defaultView: 'agendaWeek',
+                                                                defaultDate: moment(),
+                                                                businessHours: {
+                                                                    start: '6:00', // a start time (6am in this example)
+                                                                    end: '23:00', // an end time (23pm in this example)
+                                                                    dow: [0, 1, 2, 3, 4, 5, 6]
+                                                                },
+                                                                selectable: true,
+                                                                selectHelper: true,
+                                                                selectOverlap: false,
+                                                                selectConstraint: "businessHours",
+                                                                select: function (start, end) {
+                                                                    startHour = start;
+                                                                    endHour = end;
+                                                                    $('#massage-room-inpFromDate').val(start.format('MM/DD/YYYY'));
+                                                                    $('#massage-room-inpToDate').val(end.format('MM/DD/YYYY'));
+                                                                    $('#massage-room-txtFromHour').val(start.format('HH:mm'));
+                                                                    $('#massage-room-txtToHour').val(end.format('HH:mm'));
+                                                                    $('#massage-room-setup').modal('show');
+                                                                },
+                                                                eventClick: function (calEvent, jsEvent, view) {
+                                                                    eventSelected = calEvent;
+
+                                                                    $('#massage-room-inpFromDate').val(calEvent._start.format('MM/DD/YYYY'));
+                                                                    $('#massage-room-txtFromHour').val(calEvent._start.format('HH:mm'));
+
+                                                                    $('#massage-room-inpToDate').val(calEvent._end.format('MM/DD/YYYY'));
+                                                                    $('#massage-room-txtToHour').val(calEvent._end.format('HH:mm'));
+                                                                    $('#massage-room-setup').modal('show');
+                                                                },
+                                                                editable: false,
+                                                                events: [{ title: 'Hoàng Trí Dũng - P101', start: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 08:00', 'YYYY-M-D HH:mm'), end: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 10:00', 'YYYY-M-D HH:mm') }]
+                                                            });
+                                                        })
+
+                                                        $('#btn-massage-room-setup').click(function (e) {
+                                                            if (eventSelected == null) {
+                                                                var title = $('#ct-hoten').text() + ' - ' + $('#ct-phong').text()
+                                                                if ($('#ct-hoten').html()) {
+                                                                    eventData = {
+                                                                        title: title,
+                                                                        start: startHour,
+                                                                        end: endHour
+                                                                    };
+                                                                    $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                                                                } else {
+                                                                    alert('Bạn phải nhập thông tin khách hàng vào trước!');
+                                                                    $('#calendar').fullCalendar('unselect');
+                                                                    $('#massage-room-info').modal('hide');
+                                                                }
+                                                            }
+                                                            else {
+                                                                var x = moment($('#massage-room-inpFromDate').val() + ' ' + $('#massage-room-txtFromHour').val(), 'MM/DD/YYYY HH:mm');
+                                                                eventSelected.start = moment($('#massage-room-inpFromDate').val() + ' ' + $('#massage-room-txtFromHour').val(), 'MM/DD/YYYY HH:mm');
+                                                                eventSelected.end = moment($('#massage-room-inpToDate').val() + ' ' + $('#massage-room-txtToHour').val(), 'MM/DD/YYYY HH:mm');
+                                                                $('#calendar-' + banCurrent).fullCalendar('updateEvent', eventSelected);
+                                                            }
+                                                        });
+
+                                                        $('#btn-massage-room-setup-del').click(function () {
+                                                            if (eventSelected == null) {
+                                                                $('#calendar').fullCalendar('unselect');
+                                                            }
+                                                            else {
+                                                                var r = confirm("Bạn chắc chắn muốn xóa mục này?");
+                                                                $('#calendar').fullCalendar('removeEvents', eventSelected._id);
+                                                            }
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!--Đặt cọc-->
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                3. Hình thức thanh toán
-                            </div>
-                            <div class="panel-body">
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="panel panel-red">
                             <div class="panel-heading">
-                                CHI TIẾT ĐĂNG KÍ DỊCH VỤ
+                                3. THÔNG TIN ĐĂNG KÝ DỊCH VỤ
                             </div>
                             <div class="panel-body">
-                                <!-- Thông tin khách hàng -->
                                 <div class="row">
                                     <div class="col-lg-12">
 
+                                        <!-- Thông tin khách hàng -->
                                         <h4><b>Thông tin khách hàng</b></h4>
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Họ tên:</div>
-                                            <div class="col-lg-9" id="ct-hoten"></div>
+                                            <div class="col-lg-9" id="ct-hoten">Hoàng Trí Dũng</div>
                                         </div>
 
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Địa chỉ:</div>
-                                            <div class="col-lg-9" id="ct-diachi"></div>
+                                            <div class="col-lg-9" id="ct-diachi">Nguyên Xá - Minh Khai - Bắc Từ Liêm - Hà Nội</div>
                                         </div>
 
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Số điện thoại:</div>
-                                            <div class="col-lg-9" id="ct-sdt"></div>
+                                            <div class="col-lg-9" id="ct-sdt">0988594448</div>
                                         </div>
 
                                         <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
                                             <div class="col-lg-3">Phòng:</div>
-                                            <div class="col-lg-9" id="ct-phong"></div>
+                                            <div class="col-lg-9" id="ct-phong">P101</div>
                                         </div>
 
                                         <hr />
 
-                                        <h4><b>Các dịch vụ đăng kí</b></h4>
+                                        <h4><b>Các dịch vụ đăng ký</b></h4>
 
                                         <table class="table table-bordered table-striped table-hover">
                                             <thead>
@@ -982,23 +1250,53 @@
                                             </thead>
                                             <tbody id="tb-ctdv">
                                                 <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>Dịch vụ đặt bàn ăn - bàn 1</td>
+                                                    <td>11:00am - <span class="thang"></span>/<span class="ngay"></span>/2016</td>
+                                                    <td>01:00pm - <span class="thang"></span>/<span class="ngay"></span>/2016</td>
+                                                    <td>400.000 VNĐ</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dịch vụ đặt bàn ăn - bàn 6</td>
+                                                    <td>11:00am - <span class="thang"></span>/<span class="ngay"></span>/2016 </td>
+                                                    <td>01:00pm - <span class="thang"></span>/<span class="ngay"></span>/2016 </td>
+                                                    <td>400.000 VNĐ</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dịch vụ massage - phòng 1</td>
+                                                    <td>08:00am - <span class="thang"></span>/<span class="ngay"></span>/2016 </td>
+                                                    <td>10:00am - <span class="thang"></span>/<span class="ngay"></span>/2016 </td>
+                                                    <td>500.000 VNĐ</td>
                                                 </tr>
                                             </tbody>
                                         </table>
-
+                                        <script>
+                                            $(document).ready(function () {
+                                                $('span.thang').html(moment().month() + 1);
+                                                $('span.ngay').html(moment().date());
+                                            });
+                                        </script>
                                         <hr />
-                                        <h4><b>Hình thức thanh toán</b></h4>
-
+                                        <h4><b>Thanh toán</b></h4>
+                                        <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
+                                            <div class="col-lg-5" style="padding-top:7px;">Tổng số tiền phải thanh toán: </div>
+                                            <div class="col-lg-7 text-right" id="ct-sttt" style="font-weight:bold;font-size:1.5em">1.300.000 VNĐ</div>
+                                        </div>
+                                        <div class="row" style="padding:0 30px;font-size:16px;margin-bottom:5px;">
+                                            <div class="col-lg-5" style="padding-top:7px;">Hình thức thanh toán: </div>
+                                            <div class="col-lg-7">
+                                                <select id="ct-httt" class="form-control">
+                                                    <option value="1" selected>Tiền mặt</option>
+                                                    <option value="2">Thẻ ngân hàng</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <hr />
                                         <div class="row">
                                             <div class="col-lg-12 text-center">
-                                                <button class="btn btn-danger">Hoàn tất đăng kí</button>
-                                                <a href="letan.html" class="btn btn-default"><span class="text-danger">Trở về trang chủ</span></a>
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#final" onclick="finish(this)">Thanh toán &amp; Hoàn tất đăng ký</button>
+                                                <a href="letan.html" class="btn btn-default"><span class="text-danger">Hủy đăng ký</span></a>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1015,18 +1313,77 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
+
+    <div class="modal fade" id="final" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <a id="trove" class="btn btn-default" data-dismiss="modal">Trở về</a>
+                        <a id="hoantat" href="letan.html" class="btn btn-primary">Hoàn tất</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function finish(e) {
+            var text = ' và chọn <span style="font-weight:bold">Hoàn tất</span> để kết thúc quá trình đăng ký.';
+            var option = '';
+            if ($('#ct-httt').val() == '1') {
+                option = 'Hãy nhận tiền của khách hàng';
+                $('#final .modal-body').html(option + text);
+                setTimeout(function (e) {
+                    window.location.href = $('#hoantat').attr('href');
+                }, 5000);
+                $('#hoantat').click(function (e) {
+                    e.preventDefault();
+                    $('#final .modal-body').html('<div class="alert alert-success text-center"> Đăng ký thành công! <br /> Sau 5s sẽ tự động về trang chủ. </div>');
+                    $('#hoantat').html('Trang chủ');
+                    $('#trove').hide();
+                    setTimeout(function (e) {
+                        window.location.href = $('#hoantat').attr('href');
+                    }, 5000);
+                });
+            }
+            else {
+                $('#hoantat').click(function (e) {
+                    e.preventDefault();
+                    $('#final .modal-body').html('<div class="alert alert-success text-center"> Đăng ký thành công! <br /> Sau 5s sẽ tự động về trang chủ. </div>');
+                    $('#hoantat').html('Trang chủ');
+                    $('#trove').hide();
+                    setTimeout(function (e) {
+                        window.location.href = $('#hoantat').attr('href');
+                    }, 5000);
+                })
+                option = '<p>Quẹt/Cắm thẻ vào máy thanh toán.</p>  <p>Nhập số tiền mà khách hàng phải thanh toán sau đó nhấn  <span style="font-weight:bold">Enter</span> trên máy thanh toán để in hóa đơn ngân hàng</p>';
+                $('#hoantat').addClass('disabled');
+                $('#final .modal-body').html(option + text);
+                setTimeout(function (e) {
+                    $('#final .modal-body').html('<div class="alert alert-success text-center"> Thanh toán thẻ thành công! <br /> Đăng ký thành công! <br /> Sau 5s sẽ tự động về trang chủ. </div>');
+                    $('#hoantat').removeClass('disabled');
+                    $('#hoantat').html('Trang chủ');
+                    $('#trove').hide();
+                    setTimeout(function (e) {
+                        window.location.href = $('#hoantat').attr('href');
+                    }, 5000);
+                }, 5000);
+            }
+
+
+        }
+    </script>
     <!-- /#wrapper -->
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
 
-    <!--Datetimepicker-->
-    <script src="../dist/js/moment.js"></script>
-    <script src="../dist/js/bootstrap-datetimepicker.js"></script>
 
-    <!-- Full Calender-->
-    <!--<script src="../bower_components/fullcalendar-2.7.2/fullcalendar.min.js"></script>-->
-    <script src="../dist/js/fullcalendar.js"></script>
 
     <!--Data-->
     <script>
@@ -1035,7 +1392,7 @@
             { id: 'P201', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P202', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P203', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P204', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P205', Hoten: '', Diachi: '', SDT: '', Chuathue: true },
             { id: 'P301', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P302', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P303', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P304', Hoten: '', Diachi: '', SDT: '', Chuathue: true }, { id: 'P305', Hoten: '', Diachi: '', SDT: '', Chuathue: true }
         ];
-        
+
     </script>
 
 
@@ -1091,12 +1448,85 @@
 
     <!-- script cho Bàn ăn-->
     <script>
-        var startHour, endHour;
+
         var banCurrent;
-        var eventSelected;
-        
+
+
         var idDel = [];
-        var OldEvent = [[], [], [], [], [], [], [], [], [], [], [], [], []];
+        var OldEvent = [[],
+            [
+                {
+                    title: 'Hoàng Trí Dũng - P101',
+                    start: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 11:00', 'YYYY-M-D HH:mm'),
+                    end: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 13:00', 'YYYY-M-D HH:mm')
+                },
+                {
+                    title: 'Vương Đăng Đoàn - P102',
+                    start: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 09:00', 'YYYY-M-D HH:mm'),
+                    end: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 10:30', 'YYYY-M-D HH:mm'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                }
+            ], [], [], [], [],
+            [
+                {
+                    title: 'Hoàng Trí Dũng - P101',
+                    start: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 11:00', 'YYYY-M-D HH:mm'),
+                    end: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 13:00', 'YYYY-M-D HH:mm')
+                }
+            ], [],
+            [
+                {
+                    title: 'Nguyễn Văn A - (Ở ngoài)',
+                    start: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 06:00', 'YYYY-M-D HH:mm'),
+                    end: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 23:00', 'YYYY-M-D HH:mm'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                },
+                {
+                    title: 'Nguyễn Văn A - (Ở ngoài)',
+                    start: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 06:00', 'YYYY-M-D HH:mm').add(1,'d'),
+                    end: moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 23:00', 'YYYY-M-D HH:mm').add(1, 'd'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                },
+                {
+                    title: 'Nguyễn Văn A - (Ở ngoài)',
+                    start:  moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 06:00', 'YYYY-M-D HH:mm').add(2, 'd'),
+                    end:    moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 23:00', 'YYYY-M-D HH:mm').add(2, 'd'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                },
+                {
+                    title: 'Nguyễn Văn A - (Ở ngoài)',
+                    start:  moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 06:00', 'YYYY-M-D HH:mm').add(3, 'd'),
+                    end:    moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 23:00', 'YYYY-M-D HH:mm').add(3, 'd'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                },
+                {
+                    title: 'Nguyễn Văn A - (Ở ngoài)',
+                    start:  moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 06:00', 'YYYY-M-D HH:mm').add(4, 'd'),
+                    end:    moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 23:00', 'YYYY-M-D HH:mm').add(4, 'd'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                },
+                {
+                    title: 'Nguyễn Văn A - (Ở ngoài)',
+                    start:  moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 06:00', 'YYYY-M-D HH:mm').add(5, 'd'),
+                    end:    moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 23:00', 'YYYY-M-D HH:mm').add(5, 'd'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                },
+                {
+                    title: 'Nguyễn Văn A - (Ở ngoài)',
+                    start:  moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 06:00', 'YYYY-M-D HH:mm').add(6, 'd'),
+                    end:    moment('2016-' + (moment().month() + 1) + '-' + moment().date() + ' 23:00', 'YYYY-M-D HH:mm').add(6, 'd'),
+                    backgroundColor: '#d9534f',
+                    borderColor: '#d43f3a'
+                }
+
+            ], [], [], [], []];
         var dvBanan = [[], [], [], [], [], [], [], [], [], [], [], [], []];
         var xuly = [[], [], [], [], [], [], [], [], [], [], [], [], []];
 
@@ -1109,13 +1539,14 @@
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'agendaWeek'
+                    right: 'month,agendaWeek'
                 },
                 defaultView: 'agendaWeek',
                 defaultDate: moment(),
                 businessHours: {
                     start: '6:00', // a start time (6am in this example)
                     end: '23:00', // an end time (23pm in this example)
+                    dow: [0, 1, 2, 3, 4, 5, 6]
                 },
                 selectable: true,
                 selectHelper: true,
@@ -1125,19 +1556,19 @@
                     eventSelected = null;
                     startHour = start;
                     endHour = end;
-                    $('#inpFromDate').val(startHour.format('M/D/YYYY'));
-                    $('#inpToDate').val(endHour.format('M/D/YYYY'));
+                    $('#inpFromDate').val(startHour.format('MM/DD/YYYY'));
+                    $('#inpToDate').val(endHour.format('MM/DD/YYYY'));
                     $('#txtFromHour').val(startHour.format('HH:mm'));
                     $('#txtToHour').val(endHour.format('HH:mm'));
                     $('#setup').modal('show');
                 },
                 eventClick: function (calEvent, jsEvent, view) {
                     eventSelected = calEvent;
-                    
-                    $('#inpFromDate').val(calEvent._start.format('M/D/YYYY'));
+
+                    $('#inpFromDate').val(calEvent._start.format('MM/DD/YYYY'));
                     $('#txtFromHour').val(calEvent._start.format('HH:mm'));
 
-                    $('#inpToDate').val(calEvent._end.format('M/D/YYYY'));
+                    $('#inpToDate').val(calEvent._end.format('MM/DD/YYYY'));
                     $('#txtToHour').val(calEvent._end.format('HH:mm'));
                     $('#setup').modal('show');
                 },
@@ -1166,9 +1597,9 @@
                 }
             }
             else {
-                var x = moment($('#inpFromDate').val() + ' ' + $('#txtFromHour').val(), 'M/D/YYYY HH:mm');
-                eventSelected.start = moment($('#inpFromDate').val() + ' ' + $('#txtFromHour').val(), 'M/D/YYYY HH:mm');
-                eventSelected.end = moment($('#inpToDate').val() + ' ' + $('#txtToHour').val(), 'M/D/YYYY HH:mm');
+                var x = moment($('#inpFromDate').val() + ' ' + $('#txtFromHour').val(), 'MM/DD/YYYY HH:mm');
+                eventSelected.start = moment($('#inpFromDate').val() + ' ' + $('#txtFromHour').val(), 'MM/DD/YYYY HH:mm');
+                eventSelected.end = moment($('#inpToDate').val() + ' ' + $('#txtToHour').val(), 'MM/DD/YYYY HH:mm');
                 $('#calendar-' + banCurrent).fullCalendar('updateEvent', eventSelected);
                 var index = xuly[banCurrent].findIndex(function (e) {
                     return e._id == eventSelected._id
@@ -1199,8 +1630,6 @@
             var i = parseInt($(e.currentTarget).attr("data-target"));
             dvBanan[i].splice(0, dvBanan[i].length); // make dvBanan empty
             dvBanan[i].concat(xuly[i]);
-
-            refreshTb();
         });
 
         $('.banan-status .tv').click(function (e) {
@@ -1213,12 +1642,12 @@
 
         $('#inpFromDate').datetimepicker({
             minDate: startHour,
-            format: "M/D/YYYY"
+            format: "MM/DD/YYYY"
         });
         $('#inpToDate').datetimepicker({
             useCurrent: false, //Important! See issue #1075
             minDate: startHour,
-            format: "M/D/YYYY"
+            format: "MM/DD/YYYY"
         });
         $("#inpFromDate").on("dp.change", function (e) {
             $('#inpToDate').data("DateTimePicker").minDate(e.date);
@@ -1226,8 +1655,8 @@
         $("#inpToDate").on("dp.change", function (e) {
             $('#inpFromDate').data("DateTimePicker").maxDate(e.date);
         });
-        
-        
+
+
 
 
         function refreshTb() {
@@ -1240,8 +1669,8 @@
                         html +=
 '<tr>\
     <td>Dịch vụ nhà ăn - Bàn '+ index + '</td>\
-    <td>'+ item2.start.format('M/D/YYYY HH:mm') + '</td>\
-    <td>' + item2.end.format('M/D/YYYY HH:mm') + '</td>\
+    <td>'+ item2.start.format('MM/DD/YYYY HH:mm') + '</td>\
+    <td>' + item2.end.format('MM/DD/YYYY HH:mm') + '</td>\
     <td class="text-right">' + money.toLocaleString("en-US") + ',000 VNĐ</td>\
 </tr>';
 
